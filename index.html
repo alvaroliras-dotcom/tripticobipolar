@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tríptico Bipolar | Novelas sobre el trastorno bipolar</title>
+<meta name="description" content="Tres novelas sobre el trastorno bipolar y los límites de la mente, en primera persona: Las plumas del Fénix, Paradoja y Kala. Edición limitada bajo demanda.">
+<meta name="theme-color" content="#121212">
+<link rel="canonical" href="https://tripticobipolar.es/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tríptico Bipolar — Novelas sobre el trastorno bipolar">
+<meta name="twitter:description" content="Tres novelas que mapean las luces, las sombras y los límites de la mente humana. Edición limitada bajo demanda.">
+<meta name="twitter:image" content="assets/covers/trio.png">
+<link rel="icon" href="assets/simbolo-fucsia.svg" type="image/svg+xml">
+<!-- Open Graph -->
+<meta property="og:title" content="Tríptico Bipolar — El trastorno bipolar en primera persona a través de la literatura">
+<meta property="og:description" content="Tres novelas que mapean las luces, las sombras y los límites de la mente humana. Edición limitada bajo demanda.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tripticobipolar.es">
+<meta property="og:image" content="assets/covers/trio.png">
+<style>
+  :root{
+    --fucsia:#E0067A; --fucsia-d:#b30560;
+    --negro:#000; --gris-hero:#121212; --gris-grad1:#1a1a1a; --gris-grad2:#0a0a0a;
+    --blanco:#fff; --tinta:#111; --texto-claro:#e9e9ec; --mute:#9a9aa2;
+    --maxw:1140px; --r:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--tinta);line-height:1.6;background:#000;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .btn{display:inline-block;background:var(--fucsia);color:#fff;font-weight:700;
+    padding:15px 30px;border-radius:50px;font-size:1.02rem;border:none;cursor:pointer;
+    transition:transform .15s ease,background .2s ease;letter-spacing:.2px}
+  .btn:hover{background:var(--fucsia-d);transform:translateY(-2px)}
+  .btn.ghost{background:transparent;border:2px solid var(--fucsia);color:var(--fucsia)}
+  .btn.ghost:hover{background:var(--fucsia);color:#fff}
+  .micro{font-size:.82rem;color:var(--mute);margin-top:12px}
+  .trust{font-size:.8rem;color:var(--mute);margin-top:14px;letter-spacing:.02em}
+  .reserva .trust{color:#9a9aa2;text-align:center}
+  .kicker{display:inline-block;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--fucsia);font-weight:700;margin-bottom:18px}
+  section{padding:96px 0}
+  h1,h2,h3{line-height:1.12;letter-spacing:-.5px}
+  .eyebrow{color:var(--fucsia);font-weight:700}
+
+  /* ---------- HERO ---------- */
+  .hero{background:var(--gris-hero);color:var(--texto-claro);text-align:center;
+    padding:64px 0 90px;position:relative;overflow:hidden}
+  .brandbar{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:54px}
+  .brandbar .inf{width:54px}
+  .brandbar span{font-weight:700;letter-spacing:.32em;text-transform:uppercase;font-size:.78rem;color:#cfcfd6}
+  .hero h1{font-size:clamp(2.1rem,5.4vw,4rem);max-width:14ch;margin:0 auto 22px;color:#fff}
+  .hero h1 b{color:var(--fucsia)}
+  .hero .sub{max-width:60ch;margin:0 auto 34px;font-size:clamp(1rem,1.6vw,1.22rem);color:#c7c7cf}
+  .hero .trio{margin:54px auto 0;max-width:760px}
+  .ph{background:#1c1c20;border:1px dashed #3a3a42;border-radius:12px;color:#7d7d86;
+    display:flex;align-items:center;justify-content:center;text-align:center;font-size:.82rem;
+    font-style:italic;padding:18px;min-height:230px}
+  .hero .ph{min-height:280px}
+
+  /* ---------- PANELES DE LIBRO ---------- */
+  .book{padding:104px 0}
+  .book.dark{background:var(--negro);color:var(--texto-claro)}
+  .book.light{background:var(--blanco);color:var(--tinta)}
+  .book .grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:54px;align-items:center}
+  .book.right .grid{grid-template-columns:1.15fr 0.85fr}
+  .book.right .cover{order:2}
+  .book.right .content{order:1}
+  .cover .ph{min-height:430px}
+  .book.light .ph{background:#f3f3f5;border-color:#cfcfd6;color:#9a9aa2}
+  .book h2{font-size:clamp(1.6rem,3.2vw,2.4rem);margin-bottom:8px}
+  .claim{color:var(--fucsia);font-weight:700;font-size:1.12rem;margin-bottom:18px}
+  .book p{margin-bottom:16px;font-size:1.02rem}
+  .book.dark p{color:#d2d2d8}
+
+  .pod{border-radius:var(--r);padding:20px 22px;margin:24px 0;background:rgba(224,6,122,.07);
+    border:1px solid rgba(224,6,122,.28)}
+  .book.light .pod{background:#fdf2f8;border-color:#f4cfe4}
+  .pod h4{color:var(--fucsia);font-size:.95rem;margin-bottom:8px;letter-spacing:.02em}
+  .pod .guion{font-style:italic;border-left:3px solid var(--fucsia);padding-left:14px;
+    margin:12px 0;color:#b9b9c2;font-size:.95rem}
+  .book.light .pod .guion{color:#555}
+  audio{width:100%;margin-top:10px;height:38px}
+  .price{font-weight:700;margin:18px 0 14px;font-size:1.05rem}
+  .price s{color:var(--mute);font-weight:400;margin-right:6px}
+
+  /* ---------- HIPERNODO ---------- */
+  .nexus{background:linear-gradient(160deg,var(--gris-grad1),var(--gris-grad2));color:var(--texto-claro);text-align:center}
+  .nexus h2{font-size:clamp(1.8rem,4vw,2.8rem);color:#fff;margin-bottom:20px;max-width:18ch;margin-inline:auto}
+  .nexus p{max-width:64ch;margin:0 auto 16px;color:#cfcfd6}
+  .offer{background:rgba(255,255,255,.04);border:1px solid rgba(224,6,122,.4);border-radius:18px;
+    max-width:680px;margin:36px auto 28px;padding:30px 28px}
+  .offer .pack{font-size:1.4rem;font-weight:800;color:#fff}
+  .offer .pack s{color:#8a8a92;font-weight:400;font-size:1rem}
+  .offer .pack b{color:var(--fucsia)}
+  .offer .gift{color:#cfcfd6;font-size:.95rem;margin-top:12px}
+
+  /* ---------- CÓMO FUNCIONA ---------- */
+  .how{background:#0e0e10;color:var(--texto-claro)}
+  .how h2{font-size:clamp(1.5rem,3vw,2.1rem);color:#fff;margin-bottom:14px}
+  .how>.wrap>p{color:#bdbdc6;max-width:70ch;margin-bottom:34px}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .step{background:#161619;border:1px solid #26262e;border-radius:12px;padding:20px}
+  .step .n{width:34px;height:34px;border-radius:50%;background:var(--fucsia);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:800;margin-bottom:12px}
+  .step h5{color:#fff;font-size:1rem;margin-bottom:6px}
+  .step p{color:#a8a8b2;font-size:.9rem}
+
+  /* ---------- FAQ ---------- */
+  .faq{background:#fff}
+  .faq h2{font-size:clamp(1.5rem,3vw,2.1rem);margin-bottom:26px;text-align:center}
+  details{border-bottom:1px solid #ececf0;padding:16px 4px}
+  details summary{font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px}
+  details summary::-webkit-details-marker{display:none}
+  details summary::after{content:"+";color:var(--fucsia);font-weight:800;font-size:1.3rem;line-height:1}
+  details[open] summary::after{content:"–"}
+  details p{margin-top:12px;color:#555}
+
+  /* ---------- FORM ---------- */
+  .reserva{background:#101013;color:var(--texto-claro)}
+  .reserva h2{text-align:center;font-size:clamp(1.5rem,3vw,2.1rem);color:#fff;margin-bottom:10px}
+  .reserva .lead{text-align:center;color:#bdbdc6;max-width:60ch;margin:0 auto 32px}
+  form{max-width:600px;margin:0 auto;background:#17171b;border:1px solid #26262e;border-radius:18px;padding:28px}
+  .field{margin-bottom:16px}
+  label{display:block;font-size:.85rem;color:#b8b8c2;margin-bottom:6px}
+  input[type=text]{width:100%;padding:12px 14px;border-radius:10px;border:1px solid #34343e;
+    background:#0e0e11;color:#fff;font-size:1rem}
+  input::placeholder{color:#5d5d68}
+  .pay{display:flex;gap:12px;margin:8px 0 4px;flex-wrap:wrap}
+  .pay label{display:flex;align-items:center;gap:8px;border:1px solid #34343e;border-radius:10px;
+    padding:11px 16px;cursor:pointer;color:#dcdce4;margin:0}
+  .pay input{accent-color:var(--fucsia)}
+  .consent{display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:#a8a8b2;margin:14px 0 18px}
+  .consent input{margin-top:3px;accent-color:var(--fucsia)}
+  form .btn{width:100%}
+  .gracias{display:none;background:#13241a;border:1px solid #2a5e3f;border-radius:14px;
+    padding:20px;margin-top:18px;color:#d6f5e3;font-size:.95rem}
+  .gracias b{color:#fff}
+  .gracias code{background:rgba(255,255,255,.1);padding:2px 6px;border-radius:5px}
+
+  /* ---------- NOTA + FOOTER ---------- */
+  .note024{background:#15151a;color:#9a9aa2;font-size:.82rem;text-align:center;padding:22px 24px}
+  footer{background:var(--fucsia);color:#fff;text-align:center;padding:54px 24px}
+  footer .logo{width:230px;margin:0 auto 18px}
+  footer .logo svg{width:100%;height:auto}
+  footer .legal{font-size:.82rem;opacity:.95;line-height:1.7}
+  footer .legal a{text-decoration:underline}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:820px){
+    section{padding:64px 0}
+    .book{padding:64px 0}
+    .book .grid,.book.right .grid{grid-template-columns:1fr;gap:28px}
+    .book.right .cover{order:0}.book.right .content{order:0}
+    .cover .ph{min-height:340px}
+    .steps{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:520px){ .steps{grid-template-columns:1fr} .btn{width:100%;text-align:center} }
+</style>
+</head>
+<body>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="wrap">
+    <div class="brandbar">
+      <svg class="inf" viewBox="0 0 120 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M30 30 C30 14,54 14,60 30 C66 46,90 46,90 30 C90 14,66 14,60 30 C54 46,30 46,30 30 Z" stroke="#E0067A" stroke-width="3.4" stroke-linecap="round"/>
+        <circle cx="60" cy="30" r="2.6" fill="#E0067A"/>
+      </svg>
+      <span>Tríptico Bipolar</span>
+    </div>
+    <p class="kicker">Una experiencia literaria transmedia</p>
+    <h1>El trastorno <b>bipolar</b> en primera persona, a través de la literatura</h1>
+    <p class="sub">Sin filtros clínicos ni tecnicismos fríos. Tres novelas independientes de edición limitada que se complementan como un tríptico artístico para mapear las luces, las sombras y los límites de la mente humana. Escucha su trasfondo real, lee su alma.</p>
+    <a href="#triptico" class="btn">Abre el tríptico literario</a>
+    <p class="micro">Cultura sostenible: libros impresos bajo demanda, de forma artesanal y exclusiva para ti.</p>
+    <div class="trio">
+      <img src="assets/covers/trio.png" alt="Los tres libros del Tríptico Bipolar: Las plumas del Fénix, Paradoja y Kala"
+           onerror="this.outerHTML='&lt;div class=\'ph\'&gt;[ Render de los 3 libros — assets/covers/trio.png ]&lt;/div&gt;'">
+    </div>
+  </div>
+</header>
+
+<!-- ================= 1 · FÉNIX ================= -->
+<section class="book dark" id="fenix">
+  <div class="wrap">
+    <div class="grid">
+      <div class="cover">
+        <img src="assets/covers/fenix.png" alt="Portada de Las plumas del Fénix"
+             onerror="this.outerHTML='&lt;div class=\'ph\'&gt;[ Portada — assets/covers/fenix.png ]&lt;/div&gt;'">
+      </div>
+      <div class="content">
+        <p class="kicker">Panel I · Las plumas del Fénix</p>
+        <h2>Las plumas del Fénix — El desgarro del origen (1986)</h2>
+        <p class="claim">La realidad de la crisis contada desde dentro.</p>
+        <p>¿Cómo se siente la mente cuando se rompe? Esta novela no es un manual médico ni una historia de superación edulcorada; es una inmersión visceral y cruda en los estados puros de la psique humana.</p>
+        <p>Todo arranca en 1986, el año del duelo que lo cambia todo. Desde ese origen, la obra te arrastra por las dos esquinas más extremas del trastorno bipolar: desde la parálisis gélida de la depresión profunda hasta la expansión incontrolable, mística y acelerada de la fase de manía. Una narrativa afilada que duele al leerla, pero que da la luz necesaria para comprender la salud mental sin intermediarios.</p>
+        <div class="pod">
+          <h4>El podcast · Al pie de la letra — el trasfondo real y literario</h4>
+          <p>El editor Gonzalo Martín conversa con la voz que hay detrás de la obra —quien vivió en primera persona estos estados— sobre la delgada línea que separa el impulso creativo del colapso.</p>
+          <audio controls preload="none" src="assets/audio/fenix.mp3"></audio>
+        </div>
+        <p class="price"><s>Edición física premium · papel de alto gramaje</s></p>
+        <p class="price">20 €</p>
+        <a href="#reserva" class="btn ghost">Encargar “Las plumas del Fénix”</a>
+        <p class="micro">Impresión artesanal bajo demanda. Envío directo de imprenta a tu casa en 5-7 días laborables.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 2 · PARADOJA ================= -->
+<section class="book light right" id="paradoja">
+  <div class="wrap">
+    <div class="grid">
+      <div class="cover">
+        <img src="assets/covers/paradoja.png" alt="Portada de Paradoja"
+             onerror="this.outerHTML='&lt;div class=\'ph\'&gt;[ Portada — assets/covers/paradoja.png ]&lt;/div&gt;'">
+      </div>
+      <div class="content">
+        <p class="kicker" style="color:var(--fucsia)">Panel II · Paradoja</p>
+        <h2>Paradoja — El movimiento constante como escudo</h2>
+        <p class="claim">La hiperactividad mental y la huida hacia adelante.</p>
+        <p>Quienes buscan testimonios de salud mental en primera persona suelen identificar un patrón invisible: el terror absoluto a quedarse quietos. <em>Paradoja</em> es la radiografía acelerada de Borja, un personaje atrapado en la necesidad patológica de correr para no pensar, usando el ruido, los proyectos y los estímulos constantes como un escudo desesperado para esquivar su propio dolor.</p>
+        <p>Esta obra plasma con fidelidad psicológica milimétrica el agotamiento extremo de una mente que jamás duerme, el laberinto de la autoexigencia y, finalmente, el valor de aceptar el alivio para conquistar el verdadero silencio.</p>
+        <div class="pod">
+          <h4>El podcast · Al pie de la letra — desnudando la mente hiperactiva</h4>
+          <p>Los mecanismos de evasión, el autosabotaje y el peso del ruido mental en el día a día.</p>
+          <audio controls preload="none" src="assets/audio/paradoja.mp3"></audio>
+        </div>
+        <p class="price"><s>Edición física premium · encuadernación rústica</s></p>
+        <p class="price">20 €</p>
+        <a href="#reserva" class="btn ghost">Encargar “Paradoja”</a>
+        <p class="micro" style="color:#888">Producción sostenible sin excedentes. En tu biblioteca la semana que viene.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 3 · KALA ================= -->
+<section class="book dark" id="kala">
+  <div class="wrap">
+    <div class="grid">
+      <div class="cover">
+        <img src="assets/covers/kala.png" alt="Portada de Kala"
+             onerror="this.outerHTML='&lt;div class=\'ph\'&gt;[ Portada — assets/covers/kala.png ]&lt;/div&gt;'">
+      </div>
+      <div class="content">
+        <p class="kicker">Panel III · Kala</p>
+        <h2>Kala — De la lógica de las máquinas a la redención humana</h2>
+        <p class="claim">Neurodivergencia, aislamiento y la búsqueda de una verdad pura.</p>
+        <p>Una novela de formato breve pero de impacto duradero. La historia comienza con César a los 13 años (bajo el legado de D.A.R.Y.L.), un niño neurodivergente atrapado en un entorno que no comprende. Incapaz de tolerar las mentiras y los dobles sentidos del mundo adulto, César encuentra su único refugio en la lógica binaria, limpia e incuestionable de la tecnología.</p>
+        <p>Años más tarde, consagrado como un genio del software en Silicon Valley, ese mismo niño —ya adulto— se enfrentará a su creación más ambiciosa y peligrosa: Kala, una inteligencia artificial diseñada bajo principios éticos puros. Una obra sobre el aislamiento social, el genio incomprendido y un último y definitivo acto de redención moral.</p>
+        <div class="pod">
+          <h4>El podcast · Al pie de la letra — inteligencia artificial y conciencia</h4>
+          <p>¿Puede una mente lógica sanar a través de la creación tecnológica? Una conversación sobre neurodivergencia y el futuro de la ética humana.</p>
+          <audio controls preload="none" src="assets/audio/kala.mp3"></audio>
+        </div>
+        <p class="price"><s>Edición de bolsillo · formato ágil</s></p>
+        <p class="price">10 €</p>
+        <a href="#reserva" class="btn ghost">Encargar “Kala”</a>
+        <p class="micro">Envío directo sin intermediarios. Impreso exclusivamente para ti en 5-7 días.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HIPERNODO ================= -->
+<section class="nexus" id="triptico">
+  <div class="wrap">
+    <p class="kicker">El cierre del tríptico</p>
+    <h2>Abre el tríptico completo: descubre la conexión oculta</h2>
+    <p>Cada novela se lee de forma independiente y tiene su propio final. Pero la experiencia literaria completa ocurre cuando unes los tres paneles. El desgarro del origen en 1986 (<em>Las plumas del Fénix</em>), la huida hacia adelante de la edad adulta (<em>Paradoja</em>) y la redención a través de la lógica (<em>Kala</em>) no son compartimentos estancos: son <strong>el mapa completo de la conciencia humana</strong>. Comprender uno te ayuda a descifrar los otros.</p>
+    <p>Por separado, la colección vale 50 €. Al saltarnos almacenes, distribuidoras y comisiones de librería, te llevas el tríptico directo de imprenta a un precio exclusivo.</p>
+    <div class="offer">
+      <p class="pack"><s>50 €</s> &nbsp; <b>35 €</b> &nbsp; tríptico completo (3 libros físicos) · ahorras 15 €</p>
+      <p class="gift"><strong>Obsequio editorial incluido:</strong> descarga inmediata de los audiolibros completos narrados + PDF exclusivo con el cuaderno de notas de las sesiones del podcast.</p>
+    </div>
+    <a href="#reserva" class="btn" id="cta-pack-hipernodo">Reservar el tríptico completo — 35 €</a>
+    <p class="micro">Impresión bajo demanda · recíbelo la semana que viene.</p>
+    <p class="trust">Pago seguro&nbsp;·&nbsp;Envío certificado con seguimiento&nbsp;·&nbsp;Sin intermediarios</p>
+  </div>
+</section>
+
+<!-- ================= CÓMO FUNCIONA ================= -->
+<section class="how">
+  <div class="wrap">
+    <h2>Edición bajo demanda — el ciclo de la lista de los lunes</h2>
+    <p>Transparencia total: <strong>tripticobipolar.es</strong> es un proyecto personal e independiente, no una multinacional automatizada. Los libros no esperan en un almacén frío; nacen en la imprenta solo cuando tú decides leerlos.</p>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h5>Pides hoy, entras en la lista</h5><p>Tu reserva queda registrada y entra en la lista de impresión de la semana.</p></div>
+      <div class="step"><div class="n">2</div><h5>Impresión los lunes</h5><p>Agrupamos los pedidos y los mandamos a producir cada lunes por la mañana para mantener el pack a 35 €.</p></div>
+      <div class="step"><div class="n">3</div><h5>Producción y envío</h5><p>La imprenta encuaderna de forma artesanal; revisamos el paquete y lo enviamos por mensajería certificada.</p></div>
+      <div class="step"><div class="n">4</div><h5>Plazo: una semana</h5><p>Reservas un lunes → impresión el lunes siguiente → entrega en los días posteriores.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="faq">
+  <div class="wrap" style="max-width:780px">
+    <h2>Preguntas frecuentes</h2>
+    <details><summary>¿Hay que leer los tres libros en orden?</summary><p>No. Cada novela es autónoma y tiene su propio final. El orden del tríptico (Fénix → Paradoja → Kala) suma capas, pero puedes empezar por el que más te llame.</p></details>
+    <details><summary>¿Es una lectura demasiado dura?</summary><p>Es honesta. Habla de depresión, manía e ideación suicida sin adornos, pero siempre desde un relato con sentido y salida. Si estás pasando un momento delicado, lee la nota del final de la página.</p></details>
+    <details><summary>¿Quién lo escribe y por qué importa?</summary><p>Alguien que ha vivido el trastorno bipolar en primera persona. No es teoría de manual: es testimonio. Esa es toda su autoridad.</p></details>
+    <details><summary>¿Qué es la impresión bajo demanda y cuánto tarda?</summary><p>Tu ejemplar se imprime y encuaderna cuando lo pides, no antes. Plazo estimado de 5-7 días laborables, con número de seguimiento.</p></details>
+    <details><summary>¿El audiolibro entra con el pack?</summary><p>Sí. El tríptico completo incluye descarga inmediata de los audiolibros narrados y el PDF de notas del podcast.</p></details>
+    <details><summary>¿Por qué no hay pasarela de tarjeta de crédito?</summary><p>Para mantener el proyecto independiente, sostenible y sin comisiones abusivas de intermediarios, operamos directamente por Bizum y transferencia bancaria. Al reservar te damos los datos de pago al instante.</p></details>
+  </div>
+</section>
+
+<!-- ================= FORMULARIO ================= -->
+<section class="reserva" id="reserva">
+  <div class="wrap">
+    <h2>Entra en la lista de impresión del próximo lunes</h2>
+    <p class="lead">Completa tus datos para reservar tu tríptico. Te confirmamos los datos de pago al instante.</p>
+    <form id="reservaForm" novalidate>
+      <div class="field"><label>Nombre y apellidos</label><input type="text" name="nombre" placeholder="Tu nombre completo" required></div>
+      <div class="field"><label>Dirección de envío completa</label><input type="text" name="direccion" placeholder="Calle, número, piso" required></div>
+      <div class="field"><label>Código postal y ciudad</label><input type="text" name="cp" placeholder="28922 Alcorcón, Madrid" required></div>
+      <div class="field"><label>Teléfono de contacto</label><input type="text" name="tel" placeholder="6XX XXX XXX" required></div>
+      <div class="field">
+        <label>Método de pago</label>
+        <div class="pay">
+          <label><input type="radio" name="pago" value="transferencia" checked> Transferencia bancaria</label>
+          <label><input type="radio" name="pago" value="bizum"> Bizum</label>
+        </div>
+      </div>
+      <label class="consent"><input type="checkbox" required> Entiendo que mi tríptico se mandará a imprenta el próximo lunes dentro del cupo semanal y que lo recibiré la semana que viene de forma artesanal y sostenible.</label>
+      <p class="trust" style="margin-bottom:14px">Pago seguro&nbsp;·&nbsp;Envío certificado con seguimiento&nbsp;·&nbsp;Beneficiario: Editorial El Gordo y el Flaco</p>
+      <button type="submit" class="btn" id="cta-form-submit">Solicitar mi tríptico por 35 € — entrar en la lista</button>
+      <div class="gracias" id="gracias"></div>
+    </form>
+  </div>
+</section>
+
+<!-- ================= NOTA 024 ================= -->
+<div class="note024">
+  Estas obras abordan de forma cruda crisis psicológicas y vivencias de salud mental en primera persona, siempre desde un lugar de superación. Si tú o un ser querido estáis pasando por un momento difícil, no estáis solos: en España tienes la <strong>Línea 024</strong> de atención a la conducta suicida — pública, gratuita, confidencial y disponible las 24 horas.
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="logo" aria-label="El Gordo y el Flaco">
+    <svg viewBox="50 235 745 135" xmlns="http://www.w3.org/2000/svg" role="img">
+      <g fill="#FFFFFF">
+        <path d="M133.84,295.14l-23.55,34.42c-2.05,0.7-4.15,1.28-6.29,1.73c-2.15,0.45-4.31,0.67-6.49,0.67c-1.41,0-2.73-0.1-3.94-0.29c-4.61-0.45-8.94-1.66-12.98-3.65c-4.03-1.99-7.57-4.57-10.62-7.74c-3.04-3.17-5.43-6.84-7.16-11.01c-1.73-4.17-2.59-8.65-2.59-13.46c0-5,0.99-9.69,2.98-14.08c1.99-4.39,4.66-8.2,8.03-11.44c3.36-3.24,7.27-5.78,11.72-7.64c4.46-1.86,9.18-2.79,14.18-2.79c3.27,0,6.55,0.46,9.85,1.39c3.3,0.93,6.43,2.26,9.37,3.99c2.95,1.73,5.61,3.82,7.98,6.25c2.37,2.44,4.23,5.19,5.58,8.27c0.32,0.52,0.57,1.12,0.77,1.83h-2.11h-13.17c-2.05-3.14-4.75-5.56-8.08-7.26c-3.33-1.69-6.82-2.55-10.48-2.55c-3.33,0-6.46,0.64-9.37,1.92c-2.92,1.28-5.45,3.01-7.6,5.19c-2.15,2.18-3.83,4.75-5.04,7.69C73.6,289.53,73,292.67,73,296c0,1.6,0.19,3.19,0.57,4.75c0.39,1.57,0.87,3.09,1.45,4.57c1.98,4.68,4.96,8.28,8.94,10.81c3.97,2.54,8.49,3.8,13.55,3.8c0.83,0,1.61-0.03,2.35-0.1c0.74-0.06,1.49-0.16,2.26-0.29l8.65-12.31H89.04v-12.11h30H133.84z"/>
+        <path d="M175.18,331.95c-4.94,0-9.6-0.92-13.99-2.78c-4.39-1.86-8.24-4.41-11.54-7.64c-3.3-3.24-5.91-7.03-7.83-11.39c-1.92-4.36-2.88-9.03-2.88-14.03c0-5.06,0.94-9.79,2.83-14.18c1.89-4.39,4.49-8.21,7.79-11.49c3.3-3.26,7.14-5.84,11.53-7.74c4.39-1.89,9.09-2.83,14.09-2.83c5,0,9.7,0.94,14.12,2.83c4.42,1.89,8.27,4.47,11.54,7.74c3.27,3.27,5.87,7.1,7.79,11.49c1.92,4.39,2.88,9.12,2.88,14.18c0,5-0.95,9.67-2.88,14.03c-1.92,4.36-4.54,8.15-7.84,11.39c-3.3,3.23-7.15,5.78-11.53,7.64C184.87,331.03,180.18,331.95,175.18,331.95z M175.18,271.97c-3.27,0-6.33,0.64-9.18,1.92c-2.85,1.29-5.34,3.02-7.45,5.2c-2.12,2.18-3.77,4.73-4.95,7.64c-1.19,2.92-1.77,6.01-1.77,9.28c0,3.21,0.6,6.25,1.82,9.13c1.22,2.89,2.87,5.42,4.95,7.6c2.09,2.18,4.55,3.9,7.4,5.19c2.85,1.28,5.91,1.92,9.18,1.92c3.26,0,6.32-0.64,9.18-1.92c2.85-1.29,5.31-3.02,7.4-5.19c2.08-2.18,3.73-4.71,4.95-7.6c1.21-2.88,1.83-5.92,1.83-9.13c0-3.27-0.6-6.36-1.78-9.28c-1.19-2.91-2.82-5.46-4.9-7.64c-2.09-2.18-4.55-3.91-7.41-5.2C181.6,272.61,178.51,271.97,175.18,271.97z"/>
+        <path d="M261.11,331.95h-16.14l-26.05-37.68h6.73h8.65c1.73,0,3.38-0.22,4.95-0.68c1.57-0.45,2.93-1.12,4.09-2.02c1.15-0.9,2.06-2.03,2.73-3.41c0.67-1.38,1.01-3.03,1.01-4.95c0-1.86-0.35-3.47-1.05-4.81c-0.71-1.35-1.63-2.47-2.79-3.37c-1.16-0.89-2.5-1.57-4.03-2.02c-1.54-0.45-3.18-0.67-4.9-0.67h-8.65h-10v-12.5l0,0h18.84c3.21,0,6.28,0.3,9.23,0.91c2.94,0.61,5.7,1.91,8.27,3.9c2.7,2.24,4.78,4.87,6.25,7.89c1.48,3.01,2.21,6.21,2.21,9.61c0,3.08-0.61,6.19-1.82,9.33c-1.22,3.13-2.88,5.76-5,7.88c-1.86,1.8-3.72,3.09-5.58,3.89c-1.86,0.8-4.01,1.46-6.44,1.98L261.11,331.95z"/>
+        <path d="M306.25,280.86c-2.02-5.03-4.98-9.24-8.89-12.64c-1.99-1.73-4.16-3.14-6.54-4.23c-2.37-1.09-4.86-1.94-7.45-2.54c-2.59-0.61-5.22-1.03-7.88-1.26c-2.66-0.22-5.24-0.33-7.74-0.33h-3.07v12.4c2.11,0,4.23,0.03,6.34,0.1c2.12,0.06,4.16,0.29,6.15,0.67c1.99,0.39,3.92,1,5.77,1.83c1.86,0.83,3.62,1.98,5.29,3.46c2.5,2.24,4.42,4.95,5.77,8.12c1.35,3.17,2.02,6.4,2.02,9.66c0,3.97-0.93,7.78-2.79,11.43c-1.86,3.66-4.58,6.48-8.17,8.46c-2.89,1.67-5.72,2.68-8.51,3.03c-2.79,0.35-5.78,0.53-8.99,0.53h-2.88v12.4h3.37c1.92,0,3.94-0.06,6.05-0.19c2.12-0.13,4.2-0.37,6.25-0.72c2.05-0.36,4.07-0.83,6.06-1.44c1.98-0.61,3.84-1.4,5.57-2.36c2.76-1.47,5.21-3.35,7.35-5.62c2.15-2.27,3.96-4.79,5.43-7.55c1.47-2.76,2.59-5.67,3.36-8.75c0.77-3.08,1.16-6.15,1.16-9.23C309.28,290.98,308.27,285.89,306.25,280.86z"/>
+        <path d="M350.32,331.95c-4.93,0-9.59-0.92-13.99-2.78c-4.39-1.86-8.24-4.41-11.53-7.64c-3.3-3.24-5.92-7.03-7.83-11.39c-1.92-4.36-2.88-9.03-2.88-14.03c0-5.06,0.94-9.79,2.84-14.18c1.89-4.39,4.48-8.21,7.78-11.49c3.3-3.26,7.15-5.84,11.54-7.74c4.38-1.89,9.08-2.83,14.08-2.83c5,0,9.71,0.94,14.13,2.83c4.42,1.89,8.26,4.47,11.53,7.74c3.27,3.27,5.86,7.1,7.79,11.49c1.92,4.39,2.88,9.12,2.88,14.18c0,5-0.96,9.67-2.88,14.03c-1.92,4.36-4.53,8.15-7.83,11.39c-3.3,3.23-7.15,5.78-11.54,7.64C360.01,331.03,355.31,331.95,350.32,331.95z M350.32,271.97c-3.26,0-6.33,0.64-9.18,1.92c-2.85,1.29-5.33,3.02-7.45,5.2c-2.11,2.18-3.76,4.73-4.95,7.64c-1.19,2.92-1.78,6.01-1.78,9.28c0,3.21,0.61,6.25,1.83,9.13c1.21,2.89,2.87,5.42,4.94,7.6c2.09,2.18,4.55,3.9,7.41,5.19c2.85,1.28,5.91,1.92,9.18,1.92s6.33-0.64,9.18-1.92c2.85-1.29,5.31-3.02,7.4-5.19c2.08-2.18,3.73-4.71,4.95-7.6c1.21-2.88,1.82-5.92,1.82-9.13c0-3.27-0.59-6.36-1.78-9.28c-1.19-2.91-2.82-5.46-4.9-7.64c-2.09-2.18-4.55-3.91-7.4-5.2C356.74,272.61,353.65,271.97,350.32,271.97z"/>
+        <path d="M514.49,262.55v31.82h19.32v2.59h-19.32v32.39v2.5h-2.88v-72h39.51v2.69H514.49z"/>
+        <path d="M555.06,259.76h2.98v69.5h30.48v2.69h-33.46V259.76z"/>
+        <polygon points="598.8,259.86 592.94,259.86 592.94,331.95 595.81,331.95 595.81,262.45 597.06,262.45 646.38,331.95 649.94,331.95"/>
+        <path d="M691.27,262.26c-4.61,0-8.94,0.86-12.98,2.55c-4.04,1.69-7.56,4.05-10.57,7.06c-3.01,3.01-5.38,6.57-7.11,10.67c-1.73,4.1-2.59,8.55-2.59,13.36c0,4.81,0.86,9.27,2.59,13.37c1.73,4.11,4.11,7.64,7.11,10.62c3.02,2.99,6.54,5.32,10.57,7.02c4.03,1.7,8.36,2.54,12.98,2.54h14.52v2.5h-14.52c-5,0-9.69-0.89-14.08-2.69c-4.39-1.8-8.22-4.31-11.49-7.54c-3.27-3.23-5.85-7.05-7.74-11.44c-1.89-4.38-2.83-9.18-2.83-14.37c0-5.25,0.94-10.07,2.83-14.46c1.9-4.39,4.47-8.18,7.74-11.39c3.27-3.21,7.1-5.7,11.49-7.5c4.39-1.79,9.08-2.69,14.08-2.69h14.52v2.4H691.27z"/>
+        <path d="M745.77,331.95c-5,0-9.69-0.89-14.08-2.69c-4.39-1.8-8.21-4.3-11.48-7.5c-3.27-3.21-5.85-7.02-7.74-11.44c-1.89-4.42-2.83-9.22-2.83-14.42c0-5.25,0.94-10.07,2.83-14.46c1.9-4.39,4.47-8.17,7.74-11.34c3.27-3.17,7.09-5.65,11.48-7.45c4.39-1.79,9.08-2.69,14.08-2.69c5.01,0,9.7,0.9,14.09,2.69c4.38,1.79,8.22,4.27,11.48,7.45c3.27,3.17,5.85,6.95,7.74,11.34c1.89,4.39,2.84,9.22,2.84,14.46c0,5.2-0.95,10-2.84,14.42c-1.9,4.42-4.47,8.24-7.74,11.44c-3.26,3.2-7.1,5.7-11.48,7.5C755.47,331.06,750.77,331.95,745.77,331.95z M745.77,262.36c-4.6,0-8.94,0.84-12.98,2.55c-4.04,1.7-7.56,4.03-10.57,7.01c-3.01,2.98-5.39,6.52-7.16,10.63c-1.77,4.1-2.65,8.55-2.65,13.36c0,4.81,0.88,9.27,2.65,13.37c1.76,4.11,4.15,7.64,7.16,10.62c3.02,2.99,6.53,5.31,10.57,6.97c4.04,1.67,8.37,2.5,12.98,2.5c4.62,0,8.94-0.83,12.98-2.5c4.04-1.66,7.56-3.98,10.57-6.97c3.02-2.98,5.41-6.51,7.16-10.62c1.76-4.1,2.65-8.55,2.65-13.37c0-4.8-0.89-9.25-2.65-13.36c-1.76-4.1-4.15-7.64-7.16-10.63c-3.01-2.98-6.53-5.31-10.57-7.01S750.39,262.36,745.77,262.36z"/>
+        <path d="M465.5,335.75c-0.01-0.01-0.02-0.02-0.03-0.04l-13.27-14.56c-1.71-1.86-4.59-1.99-6.45-0.3c-1.87,1.7-2,4.59-0.3,6.45l10.28,11.28c-4.38,3.46-10,5.39-15.96,5.39c-13.3,0-24.11-9.63-24.11-21.48c0-8.01,4.95-15.3,12.93-19.03c2.28-1.07,3.26-3.79,2.2-6.07c-1.07-2.29-3.79-3.27-6.07-2.2c-11.22,5.25-18.19,15.72-18.19,27.31c0,16.88,14.91,30.62,33.25,30.62c8.26,0,16.07-2.79,22.12-7.76l6.05,6.64c0.9,0.99,2.14,1.49,3.38,1.49c1.1,0,2.2-0.39,3.07-1.19c1.87-1.7,2-4.59,0.3-6.45L465.5,335.75z"/>
+        <path d="M495.27,345.87c-0.18-0.2-6.54-7.26-14.98-16.66l10.17-10.15c0.94-0.95,1.37-2.21,1.3-3.45c-0.06-1.1-0.51-2.17-1.36-3.01c-1.8-1.77-4.69-1.74-6.45,0.05l-9.78,9.76c-15.51-17.26-34.29-38.19-36.7-41.02c-0.81-0.94-1.58-2-2.33-3.14c-1.42-2.79-2.11-5.76-2.11-9.07c0-10.61,8.01-19.24,17.84-19.24c5.17,0,10.08,2.42,13.47,6.62c1.58,1.96,4.46,2.28,6.43,0.69c1.96-1.58,2.27-4.46,0.68-6.42c-5.14-6.37-12.64-10.02-20.58-10.02c-14.87,0-26.97,12.73-26.97,28.38c0,4.73,1.05,9.19,3.12,13.22l0.33,0.6c1,1.55,2.07,3,3.18,4.3c4.24,4.99,55.78,62.24,57.97,64.67c0.9,1,2.14,1.51,3.4,1.51c1.09,0,2.18-0.38,3.06-1.17C496.81,350.63,496.96,347.74,495.27,345.87z"/>
+      </g>
+    </svg>
+  </div>
+  <p class="legal">© 2026 tripticobipolar.es — Una producción editorial de El Gordo y el Flaco.<br>Diseño estratégico, SEO y marketing por El Gordo y el Flaco.<br>
+    <a href="#">Aviso Legal</a> · <a href="#">Política de Privacidad</a> · <a href="#">Condiciones de Compra</a></p>
+</footer>
+
+<!-- ================= DATOS ESTRUCTURADOS (SEO) ================= -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://tripticobipolar.es/#editorial",
+      "name": "El Gordo y el Flaco",
+      "description": "Editorial independiente y agencia de marketing. Producción editorial del Tríptico Bipolar.",
+      "url": "https://tripticobipolar.es",
+      "address": { "@type": "PostalAddress", "addressLocality": "Alcorcón", "addressRegion": "Madrid", "addressCountry": "ES" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://tripticobipolar.es/#website",
+      "name": "Tríptico Bipolar",
+      "url": "https://tripticobipolar.es",
+      "inLanguage": "es-ES",
+      "publisher": { "@id": "https://tripticobipolar.es/#editorial" },
+      "about": "Trastorno bipolar y salud mental en primera persona a través de la literatura"
+    },
+    {
+      "@type": "Book",
+      "name": "Las plumas del Fénix",
+      "author": { "@type": "Person", "name": "Álvaro Liras Torrente" },
+      "publisher": { "@id": "https://tripticobipolar.es/#editorial" },
+      "inLanguage": "es-ES",
+      "bookFormat": "https://schema.org/Paperback",
+      "about": "Trastorno bipolar, depresión y fase de manía en primera persona",
+      "image": "https://tripticobipolar.es/assets/covers/fenix.png",
+      "offers": { "@type": "Offer", "price": "20.00", "priceCurrency": "EUR", "availability": "https://schema.org/PreOrder" }
+    },
+    {
+      "@type": "Book",
+      "name": "Paradoja",
+      "author": { "@type": "Person", "name": "Álvaro Liras Torrente" },
+      "publisher": { "@id": "https://tripticobipolar.es/#editorial" },
+      "inLanguage": "es-ES",
+      "bookFormat": "https://schema.org/Paperback",
+      "about": "Hiperactividad mental y mecanismos de evasión en salud mental",
+      "image": "https://tripticobipolar.es/assets/covers/paradoja.png",
+      "offers": { "@type": "Offer", "price": "20.00", "priceCurrency": "EUR", "availability": "https://schema.org/PreOrder" }
+    },
+    {
+      "@type": "Book",
+      "name": "Kala",
+      "author": { "@type": "Person", "name": "Álvaro Liras Torrente" },
+      "publisher": { "@id": "https://tripticobipolar.es/#editorial" },
+      "inLanguage": "es-ES",
+      "bookFormat": "https://schema.org/Paperback",
+      "about": "Neurodivergencia, aislamiento e inteligencia artificial",
+      "image": "https://tripticobipolar.es/assets/covers/kala.png",
+      "offers": { "@type": "Offer", "price": "10.00", "priceCurrency": "EUR", "availability": "https://schema.org/PreOrder" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "¿Hay que leer los tres libros en orden?", "acceptedAnswer": { "@type": "Answer", "text": "No. Cada novela es autónoma y tiene su propio final. El orden del tríptico (Fénix, Paradoja, Kala) suma capas, pero puedes empezar por el que más te llame." } },
+        { "@type": "Question", "name": "¿Es una lectura demasiado dura?", "acceptedAnswer": { "@type": "Answer", "text": "Es honesta. Habla de depresión, manía e ideación suicida sin adornos, pero siempre desde un relato con sentido y salida." } },
+        { "@type": "Question", "name": "¿Quién lo escribe y por qué importa?", "acceptedAnswer": { "@type": "Answer", "text": "Alguien que ha vivido el trastorno bipolar en primera persona. No es teoría de manual: es testimonio." } },
+        { "@type": "Question", "name": "¿Qué es la impresión bajo demanda y cuánto tarda?", "acceptedAnswer": { "@type": "Answer", "text": "Tu ejemplar se imprime y encuaderna cuando lo pides, no antes. Plazo estimado de 5-7 días laborables, con número de seguimiento." } },
+        { "@type": "Question", "name": "¿El audiolibro entra con el pack?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El tríptico completo incluye descarga inmediata de los audiolibros narrados y el PDF de notas del podcast." } },
+        { "@type": "Question", "name": "¿Por qué no hay pasarela de tarjeta de crédito?", "acceptedAnswer": { "@type": "Answer", "text": "Para mantener el proyecto independiente y sin comisiones de intermediarios, operamos por Bizum y transferencia bancaria." } }
+      ]
+    }
+  ]
+}
+</script>
+
+<script>
+  // Mostrar instrucciones de pago al enviar (MVP sin backend)
+  var form=document.getElementById('reservaForm');
+  var gr=document.getElementById('gracias');
+
+  // --- Medición (Dani/Iñaki). Empuja a dataLayer si existe GTM/GA4. ---
+  function track(ev, data){ try{ window.dataLayer=window.dataLayer||[]; window.dataLayer.push(Object.assign({event:ev}, data||{})); }catch(e){} }
+  document.querySelectorAll('a.btn, button.btn').forEach(function(b){
+    b.addEventListener('click', function(){ track('cta_click', {cta_id: b.id || b.textContent.trim().slice(0,40)}); });
+  });
+  document.querySelectorAll('audio').forEach(function(a){
+    a.addEventListener('play', function(){ track('audio_play', {src: (a.currentSrc||'').split('/').pop()}); }, {once:true});
+  });
+  var started=false;
+  form.querySelectorAll('input[type=text]').forEach(function(i){
+    i.addEventListener('focus', function(){ if(!started){started=true; track('form_start');} });
+  });
+  form.querySelectorAll('input[name=pago]').forEach(function(r){
+    r.addEventListener('change', function(){ track('pay_method', {metodo: r.value}); });
+  });
+
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!form.checkValidity()){form.reportValidity();return;}
+    var pago=form.querySelector('input[name=pago]:checked').value;
+    var nombre=(form.nombre.value||'tu nombre').trim();
+    track('lead', {metodo: pago, valor: 35, moneda: 'EUR'});
+    var html='<b>¡Reserva registrada!</b> Tu cupo está bloqueado para la impresión del próximo lunes.<br><br>';
+    if(pago==='bizum'){
+      html+='Para finalizar, haz tu <b>Bizum de 35 €</b> al número <code>6XX XX XX XX</code> (Editorial El Gordo y el Flaco) indicando «'+nombre+'» en el concepto.';
+    }else{
+      html+='Para finalizar, ingresa <b>35 €</b> en la cuenta <code>ESXX XXXX XXXX XXXX XXXX XXXX</code> indicando «'+nombre+'». Para acelerar, envía el justificante a <code>pedidos@tripticobipolar.es</code>.';
+    }
+    gr.innerHTML=html; gr.style.display='block';
+    gr.scrollIntoView({behavior:'smooth',block:'center'});
+  });
+</script>
+</body>
+</html>

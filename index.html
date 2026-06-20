@@ -2,6 +2,28 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<!-- Consent Mode v2: por defecto denegado hasta que el usuario acepte en el banner -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'ad_storage':'denied',
+    'ad_user_data':'denied',
+    'ad_personalization':'denied',
+    'analytics_storage':'denied'
+  });
+  try {
+    if (localStorage.getItem('tb_consent') === 'granted') {
+      gtag('consent','update',{'ad_storage':'granted','ad_user_data':'granted','ad_personalization':'granted','analytics_storage':'granted'});
+    }
+  } catch(e){}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VF98R2KXVM"></script>
+<script>
+  gtag('js', new Date());
+  gtag('config', 'G-VF98R2KXVM');
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tríptico Bipolar | Novelas sobre el trastorno bipolar</title>
 <meta name="description" content="Tres novelas sobre el trastorno bipolar y los límites de la mente, en primera persona: Las plumas del Fénix, Paradoja y Kala. Edición limitada bajo demanda.">
@@ -581,5 +603,46 @@
 <div id="lightbox"><span class="lbclose">&times;</span><img alt=""></div>
 <script>(function(){var lb=document.getElementById("lightbox"),img=lb.querySelector("img");document.querySelectorAll(".gitem").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();img.src=a.getAttribute("href");lb.classList.add("open");});});function c(){lb.classList.remove("open");img.src="";}lb.addEventListener("click",c);document.addEventListener("keydown",function(e){if(e.key==="Escape")c();});var fc=document.querySelector(".fenix-carousel");if(fc){var sl=fc.querySelectorAll(".fc-slide"),dt=fc.querySelectorAll(".fc-dot"),i=0;function go(n){i=(n+sl.length)%sl.length;sl.forEach(function(x){x.classList.remove("active")});dt.forEach(function(x){x.classList.remove("active")});sl[i].classList.add("active");if(dt[i])dt[i].classList.add("active");}fc.querySelector(".fc-next").addEventListener("click",function(){go(i+1)});fc.querySelector(".fc-prev").addEventListener("click",function(){go(i-1)});dt.forEach(function(d,n){d.addEventListener("click",function(){go(n)})});}})();</script>
 <script>(function(){var hb=document.getElementById("hambBtn"),nl=document.getElementById("navLinks");if(hb&&nl){hb.addEventListener("click",function(){var o=nl.classList.toggle("open");hb.classList.toggle("open",o);hb.setAttribute("aria-expanded",o);});nl.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){nl.classList.remove("open");hb.classList.remove("open");hb.setAttribute("aria-expanded","false");});});}var br=document.querySelector(".topnav .brand");if(br){br.addEventListener("click",function(e){e.preventDefault();window.scrollTo({top:0,behavior:"smooth"});});}})();</script>
+<!-- Banner de consentimiento de cookies -->
+<style>
+  .cookie-banner{position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;display:none;
+    background:#1c1b1f;color:#f2f2f2;border:1px solid rgba(224,6,122,.55);border-radius:14px;
+    padding:16px 18px;box-shadow:0 14px 44px rgba(0,0,0,.5);max-width:720px;margin:0 auto;
+    font-family:inherit}
+  .cookie-banner.show{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+  .cookie-banner p{margin:0;flex:1 1 280px;font-size:14px;line-height:1.5}
+  .cookie-banner a{color:#E0067A;text-decoration:underline}
+  .cookie-actions{display:flex;gap:10px;flex:0 0 auto}
+  .cookie-btn{cursor:pointer;border:0;border-radius:9px;font:inherit;font-weight:700;font-size:14px;padding:10px 18px;transition:opacity .15s ease}
+  .cookie-btn:hover{opacity:.9}
+  .cookie-btn--primary{background:#E0067A;color:#fff}
+  .cookie-btn--ghost{background:transparent;color:#f2f2f2;border:1px solid rgba(255,255,255,.4)}
+  @media(max-width:520px){.cookie-actions{width:100%}.cookie-btn{flex:1}}
+</style>
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Aviso de cookies">
+  <p>Usamos cookies de analítica (Google Analytics) para entender cómo se usa la web. Solo se activan si las aceptas.</p>
+  <div class="cookie-actions">
+    <button id="cookie-reject" class="cookie-btn cookie-btn--ghost" type="button">Rechazar</button>
+    <button id="cookie-accept" class="cookie-btn cookie-btn--primary" type="button">Aceptar</button>
+  </div>
+</div>
+<script>
+  (function(){
+    var banner=document.getElementById('cookie-banner');
+    function saved(){ try{ return localStorage.getItem('tb_consent'); }catch(e){ return null; } }
+    function grant(){
+      try{ localStorage.setItem('tb_consent','granted'); }catch(e){}
+      if(typeof gtag==='function'){ gtag('consent','update',{'ad_storage':'granted','ad_user_data':'granted','ad_personalization':'granted','analytics_storage':'granted'}); }
+      if(banner) banner.classList.remove('show');
+    }
+    function deny(){
+      try{ localStorage.setItem('tb_consent','denied'); }catch(e){}
+      if(banner) banner.classList.remove('show');
+    }
+    if(!saved() && banner){ banner.classList.add('show'); }
+    var a=document.getElementById('cookie-accept'); if(a) a.addEventListener('click',grant);
+    var r=document.getElementById('cookie-reject'); if(r) r.addEventListener('click',deny);
+  })();
+</script>
 </body>
 </html>

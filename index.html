@@ -160,7 +160,34 @@
     .steps{grid-template-columns:1fr 1fr}
   }
   @media(max-width:520px){ .steps{grid-template-columns:1fr} .btn{width:100%;text-align:center} }
+  .tri-intro{max-width:760px;margin:0 auto;text-align:center}
+  .tri-intro .pod{text-align:left;margin-top:22px}
+  .tri-intro .ep{margin:14px 0 6px;font-weight:600}
   iframe.audio{border:0;border-radius:8px;width:100%;display:block;background:#000}
+  .gallery{margin-top:30px}
+  .gtitle{margin:0 0 14px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;opacity:.65}
+  .gthumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px}
+  .gitem{display:block;overflow:hidden;border-radius:8px;aspect-ratio:3/4;background:rgba(128,128,128,.15);cursor:zoom-in}
+  .gitem img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+  .gitem:hover img{transform:scale(1.06)}
+  .fenix-carousel{position:relative;max-width:760px;margin:0 auto;background:#141414;border:1px solid #2a2a2a;border-radius:12px;padding:26px}
+  .fc-stage{position:relative;min-height:520px;overflow:hidden}
+  .fc-slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .5s;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+  .fc-slide.active{opacity:1;visibility:visible;position:relative}
+  .fc-slide img{max-width:100%;max-height:400px;object-fit:contain;border-radius:6px;border:1px solid #333;box-shadow:0 8px 20px rgba(0,0,0,.6);margin-bottom:18px}
+  .fc-title{font-size:1.1rem;color:#d4af37;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px}
+  .fc-desc{font-size:1rem;color:#ccc;max-width:560px;line-height:1.5;margin:0 auto}
+  .fc-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(212,175,55,.15);border:1px solid #d4af37;color:#d4af37;width:42px;height:42px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:5}
+  .fc-btn:hover{background:#d4af37;color:#0b0b0b}
+  .fc-prev{left:-16px}.fc-next{right:-16px}
+  .fc-dots{display:flex;justify-content:center;gap:9px;margin-top:18px;flex-wrap:wrap}
+  .fc-dot{width:10px;height:10px;border-radius:50%;background:#333;border:0;cursor:pointer}
+  .fc-dot.active{background:#d4af37;box-shadow:0 0 8px #d4af37}
+  #lightbox{position:fixed;inset:0;background:rgba(0,0,0,.93);display:none;align-items:center;justify-content:center;z-index:9999;padding:20px;cursor:zoom-out}
+  #lightbox.open{display:flex}
+  #lightbox img{max-width:96vw;max-height:92vh;object-fit:contain;border-radius:6px;box-shadow:0 12px 60px rgba(0,0,0,.6)}
+  #lightbox .lbclose{position:fixed;top:16px;right:24px;color:#fff;font-size:34px;line-height:1;cursor:pointer}
+  @media(max-width:768px){.fc-prev{left:4px}.fc-next{right:4px}.fc-stage{min-height:460px}.fc-slide img{max-height:300px}}
 </style>
 </head>
 <body>
@@ -186,6 +213,27 @@
     </div>
   </div>
 </header>
+
+<!-- ============ INTRO DEL TRÍPTICO (nexo) ============ -->
+<section class="book" id="triptico-intro">
+  <div class="wrap"><div class="tri-intro">
+    <p class="kicker">El tríptico</p>
+    <h2>No son tres novelas. Son tres formas de mirar la misma mente.</h2>
+    <p>Cada libro se sostiene solo. Pero juntos cuentan algo que ninguno dice por separado.</p>
+    <p><b>Las plumas del Fénix</b> es el desgarro del origen: la crisis en carne viva, el fuego que rompe y enseña a volar. <b>Paradoja</b> es lo que viene después: la huida hacia adelante de quien corre para no pensar. Y <b>Kala</b> es el regreso: la lógica fría que, al final, se atreve a mirarse y a sanar.</p>
+    <p>Fuego, huida y redención. Tres caras de una misma mente bipolar, escritas desde dentro y sin anestesia.</p>
+    <div class="pod">
+      <h4>El hilo que une los tres libros</h4>
+      <p>Antes de abrir el tríptico, escucha de qué está hecho. Dos episodios sobre el terreno común de las tres novelas.</p>
+      <p class="ep">Parte 1 — Cuando el cerebro se cree dios</p>
+      <iframe class="audio" src="https://drive.google.com/file/d/1VK242CcMjVn7fKqcPVofg9dUqVBxLNnP/preview" width="100%" height="66" allow="autoplay" loading="lazy" title="Podcast del nexo — Parte 1"></iframe>
+      <p class="ep">Parte 2 — Anatomía de la huida emocional</p>
+      <iframe class="audio" src="https://drive.google.com/file/d/18kasT0l3HSrw3VKCvqqtuVjf5L1oDZPB/preview" width="100%" height="66" allow="autoplay" loading="lazy" title="Podcast del nexo — Parte 2"></iframe>
+    </div>
+    <a href="#triptico" class="btn">Abre el tríptico completo &rarr;</a>
+  </div></div>
+</section>
+
 
 <!-- ================= 1 · FÉNIX ================= -->
 <section class="book dark" id="fenix">
@@ -213,6 +261,7 @@
       </div>
     </div>
   </div>
+  <div class="wrap"><h4 class="gtitle">Galería · Las plumas del Fénix</h4><div class="fenix-carousel"><button class="fc-btn fc-prev" aria-label="Anterior">&#10094;</button><div class="fc-stage"><div class="fc-slide active"><img src="assets/gallery/fenix-1.jpg" alt="La portada" loading="lazy"><div class="fc-title">La portada</div><p class="fc-desc">&laquo;A veces el fuego no destruye: enseña a volar.&raquo; El inicio del viaje.</p></div><div class="fc-slide"><img src="assets/gallery/fenix-3.png" alt="Fase 1 · El nacimiento" loading="lazy"><div class="fc-title">Fase 1 · El nacimiento</div><p class="fc-desc">El dolor de las plumas. La fractura inicial: el fuego interno empieza a romper desde el pecho.</p></div><div class="fc-slide"><img src="assets/gallery/fenix-4.png" alt="Fase 2 · El apogeo" loading="lazy"><div class="fc-title">Fase 2 · El apogeo</div><p class="fc-desc">Las alas extendidas en toda su majestuosidad. El vuelo en su punto más alto.</p></div><div class="fc-slide"><img src="assets/gallery/fenix-5.png" alt="Fase 3 · El incendio" loading="lazy"><div class="fc-title">Fase 3 · El incendio</div><p class="fc-desc">El Fénix arde. La catarsis absoluta: el fuego consume el alma.</p></div><div class="fc-slide"><img src="assets/gallery/fenix-6.png" alt="Fase 4 · La agonía" loading="lazy"><div class="fc-title">Fase 4 · La agonía</div><p class="fc-desc">La pira interior. El peso del desplome tras el incendio.</p></div><div class="fc-slide"><img src="assets/gallery/fenix-7.png" alt="Fase 5 · El silencio" loading="lazy"><div class="fc-title">Fase 5 · El silencio</div><p class="fc-desc">El silencio del fuego. El resurgir, la aceptación y la paz tras quemarlo todo.</p></div><div class="fc-slide"><img src="assets/gallery/fenix-2.jpg" alt="La contraportada" loading="lazy"><div class="fc-title">La contraportada</div><p class="fc-desc">El cierre del ciclo, en dos palabras: &laquo;Ardí, nací.&raquo;</p></div><div class="fc-slide"><img src="assets/gallery/../autor.png" alt="El autor, hoy" loading="lazy"><div class="fc-title">El autor, hoy</div><p class="fc-desc">Ardí, nací. Y este es el que lo escribe, hoy. El final del ciclo no es un libro: es la cara de quien aprendió a volar.</p></div></div><button class="fc-btn fc-next" aria-label="Siguiente">&#10095;</button><div class="fc-dots"><button class="fc-dot active" aria-label="Ir a 1"></button><button class="fc-dot" aria-label="Ir a 2"></button><button class="fc-dot" aria-label="Ir a 3"></button><button class="fc-dot" aria-label="Ir a 4"></button><button class="fc-dot" aria-label="Ir a 5"></button><button class="fc-dot" aria-label="Ir a 6"></button><button class="fc-dot" aria-label="Ir a 7"></button><button class="fc-dot" aria-label="Ir a 8"></button></div></div></div>
 </section>
 
 <!-- ================= 2 · PARADOJA ================= -->
@@ -241,6 +290,7 @@
       </div>
     </div>
   </div>
+  <div class="wrap"><div class="gallery"><h4 class="gtitle">Galería · Paradoja</h4><div class="gthumbs"><a href="assets/gallery/paradoja-1.jpg" class="gitem"><img src="assets/gallery/paradoja-1.jpg" alt="Portada" loading="lazy"></a><a href="assets/gallery/paradoja-2.jpg" class="gitem"><img src="assets/gallery/paradoja-2.jpg" alt="Contraportada" loading="lazy"></a></div></div></div>
 </section>
 
 <!-- ================= 3 · KALA ================= -->
@@ -269,6 +319,7 @@
       </div>
     </div>
   </div>
+  <div class="wrap"><div class="gallery"><h4 class="gtitle">Galería · Kala</h4><div class="gthumbs"><a href="assets/gallery/kala-1.jpg" class="gitem"><img src="assets/gallery/kala-1.jpg" alt="Portada" loading="lazy"></a><a href="assets/gallery/kala-2.png" class="gitem"><img src="assets/gallery/kala-2.png" alt="Contraportada" loading="lazy"></a></div></div></div>
 </section>
 
 <!-- ================= HIPERNODO ================= -->
@@ -289,6 +340,21 @@
 </section>
 
 <!-- ================= CÓMO FUNCIONA ================= -->
+
+<!-- ================= AUTOR ================= -->
+<section class="book" id="autor">
+  <div class="wrap"><div class="grid">
+    <div class="cover"><img src="assets/autor.png" alt="Álvaro Liras Torrente, autor del Tríptico Bipolar"></div>
+    <div class="content">
+      <p class="kicker">El autor</p>
+      <h2>Quién escribe esto</h2>
+      <p>Me llamo <b>Álvaro Liras Torrente</b>. Veinticinco años de trayectoria en publicidad: publicista, diseñador y, sobre todo, redactor —de los que se ganan el pan haciendo que desconocidos lean hasta el final—. Por el camino he juntado tres másteres: marketing online, analítica web y SEO. Sé cómo se construye un texto para que funcione.</p>
+      <p>Y soy bipolar. No lo digo en voz baja ni lo escondo en una nota al pie: lo he dicho siempre, cada vez que ha salido el tema, sin pedir permiso ni perdón. Estas tres novelas no son un ejercicio de imaginación. Son el mapa de un territorio que conozco por dentro.</p>
+      <p>He pasado un cuarto de siglo consiguiendo que la gente lea lo que otros querían contar. El tríptico es lo que pasa cuando, por una vez, uso ese oficio para lo único que es mío. Escribo del trastorno bipolar desde los días en que el cerebro se cree dios y desde los días en que no se cree nada. Si algo de esto te suena —porque lo vives tú o alguien a quien quieres—, es mi manera de decirte que se puede contar. Y que contarlo, a veces, también es aprender a volar.</p>
+    </div>
+  </div></div>
+</section>
+
 <section class="how">
   <div class="wrap">
     <h2>Edición bajo demanda — el ciclo de la lista de los lunes</h2>
@@ -308,7 +374,7 @@
     <h2>Preguntas frecuentes</h2>
     <details><summary>¿Hay que leer los tres libros en orden?</summary><p>No. Cada novela es autónoma y tiene su propio final. El orden del tríptico (Fénix → Paradoja → Kala) suma capas, pero puedes empezar por el que más te llame.</p></details>
     <details><summary>¿Es una lectura demasiado dura?</summary><p>Es honesta. Habla de depresión, manía e ideación suicida sin adornos, pero siempre desde un relato con sentido y salida. Si estás pasando un momento delicado, lee la nota del final de la página.</p></details>
-    <details><summary>¿Quién lo escribe y por qué importa?</summary><p>Alguien que ha vivido el trastorno bipolar en primera persona. No es teoría de manual: es testimonio. Esa es toda su autoridad.</p></details>
+    <details><summary>¿Quién lo escribe y por qué importa?</summary><p>Lo escribe Álvaro Liras Torrente, que ha vivido el trastorno bipolar en primera persona. No es teoría de manual: es testimonio. Esa es toda su autoridad.</p></details>
     <details><summary>¿Qué es la impresión bajo demanda y cuánto tarda?</summary><p>Tu ejemplar se imprime y encuaderna cuando lo pides, no antes. Plazo estimado de 5-7 días laborables, con número de seguimiento.</p></details>
     <details><summary>¿El audiolibro entra con el pack?</summary><p>Sí. El tríptico completo incluye descarga inmediata de los audiolibros narrados y el PDF de notas del podcast.</p></details>
     <details><summary>¿Por qué no hay pasarela de tarjeta de crédito?</summary><p>Para mantener el proyecto independiente, sostenible y sin comisiones abusivas de intermediarios, operamos directamente por Bizum y transferencia bancaria. Al reservar te damos los datos de pago al instante.</p></details>
@@ -429,7 +495,7 @@
       "mainEntity": [
         { "@type": "Question", "name": "¿Hay que leer los tres libros en orden?", "acceptedAnswer": { "@type": "Answer", "text": "No. Cada novela es autónoma y tiene su propio final. El orden del tríptico (Fénix, Paradoja, Kala) suma capas, pero puedes empezar por el que más te llame." } },
         { "@type": "Question", "name": "¿Es una lectura demasiado dura?", "acceptedAnswer": { "@type": "Answer", "text": "Es honesta. Habla de depresión, manía e ideación suicida sin adornos, pero siempre desde un relato con sentido y salida." } },
-        { "@type": "Question", "name": "¿Quién lo escribe y por qué importa?", "acceptedAnswer": { "@type": "Answer", "text": "Alguien que ha vivido el trastorno bipolar en primera persona. No es teoría de manual: es testimonio." } },
+        { "@type": "Question", "name": "¿Quién lo escribe y por qué importa?", "acceptedAnswer": { "@type": "Answer", "text": "Lo escribe Álvaro Liras Torrente, que ha vivido el trastorno bipolar en primera persona. No es teoría de manual: es testimonio." } },
         { "@type": "Question", "name": "¿Qué es la impresión bajo demanda y cuánto tarda?", "acceptedAnswer": { "@type": "Answer", "text": "Tu ejemplar se imprime y encuaderna cuando lo pides, no antes. Plazo estimado de 5-7 días laborables, con número de seguimiento." } },
         { "@type": "Question", "name": "¿El audiolibro entra con el pack?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El tríptico completo incluye descarga inmediata de los audiolibros narrados y el PDF de notas del podcast." } },
         { "@type": "Question", "name": "¿Por qué no hay pasarela de tarjeta de crédito?", "acceptedAnswer": { "@type": "Answer", "text": "Para mantener el proyecto independiente y sin comisiones de intermediarios, operamos por Bizum y transferencia bancaria." } }
@@ -441,6 +507,7 @@
 
 <script>
   // Mostrar instrucciones de pago al enviar (MVP sin backend)
+  var FORMSPREE='https://formspree.io/f/xzdqnyle'; // <-- pega aqui tu codigo de Formspree
   var form=document.getElementById('reservaForm');
   var gr=document.getElementById('gracias');
 
@@ -466,15 +533,18 @@
     var pago=form.querySelector('input[name=pago]:checked').value;
     var nombre=(form.nombre.value||'tu nombre').trim();
     track('lead', {metodo: pago, valor: 35, moneda: 'EUR'});
+    if(FORMSPREE.indexOf('TU_CODIGO')===-1){ try{ var fd=new FormData(form); fd.append('_subject','Nuevo pedido triptico - '+nombre); fetch(FORMSPREE,{method:'POST',body:fd,headers:{'Accept':'application/json'}}); }catch(err){} }
     var html='<b>¡Reserva registrada!</b> Tu cupo está bloqueado para la impresión del próximo lunes.<br><br>';
     if(pago==='bizum'){
-      html+='Para finalizar, haz tu <b>Bizum de 35 €</b> al número <code>6XX XX XX XX</code> (Editorial El Gordo y el Flaco) indicando «'+nombre+'» en el concepto.';
+      html+='Para finalizar, haz tu <b>Bizum de 35 €</b> al número <code>670 781 940</code> (Editorial El Gordo y el Flaco) indicando «'+nombre+'» en el concepto.';
     }else{
-      html+='Para finalizar, ingresa <b>35 €</b> en la cuenta <code>ESXX XXXX XXXX XXXX XXXX XXXX</code> indicando «'+nombre+'». Para acelerar, envía el justificante a <code>pedidos@tripticobipolar.es</code>.';
+      html+='Para finalizar, ingresa <b>35 €</b> en la cuenta <code>ES51 2100 3367 8713 0012 9021</code> indicando «'+nombre+'». Para acelerar, envía el justificante a <code>alvaroliras@gmail.com</code>.';
     }
     gr.innerHTML=html; gr.style.display='block';
     gr.scrollIntoView({behavior:'smooth',block:'center'});
   });
 </script>
+<div id="lightbox"><span class="lbclose">&times;</span><img alt=""></div>
+<script>(function(){var lb=document.getElementById("lightbox"),img=lb.querySelector("img");document.querySelectorAll(".gitem").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();img.src=a.getAttribute("href");lb.classList.add("open");});});function c(){lb.classList.remove("open");img.src="";}lb.addEventListener("click",c);document.addEventListener("keydown",function(e){if(e.key==="Escape")c();});var fc=document.querySelector(".fenix-carousel");if(fc){var sl=fc.querySelectorAll(".fc-slide"),dt=fc.querySelectorAll(".fc-dot"),i=0;function go(n){i=(n+sl.length)%sl.length;sl.forEach(function(x){x.classList.remove("active")});dt.forEach(function(x){x.classList.remove("active")});sl[i].classList.add("active");if(dt[i])dt[i].classList.add("active");}fc.querySelector(".fc-next").addEventListener("click",function(){go(i+1)});fc.querySelector(".fc-prev").addEventListener("click",function(){go(i-1)});dt.forEach(function(d,n){d.addEventListener("click",function(){go(n)})});}})();</script>
 </body>
 </html>

@@ -11,7 +11,7 @@
 <meta name="twitter:title" content="Tríptico Bipolar — Novelas sobre el trastorno bipolar">
 <meta name="twitter:description" content="Tres novelas que mapean las luces, las sombras y los límites de la mente humana. Edición limitada bajo demanda.">
 <meta name="twitter:image" content="assets/covers/trio.png">
-<link rel="icon" href="assets/simbolo-fucsia.svg" type="image/svg+xml">
+<link rel="icon" href="assets/simbolo-infinito.svg" type="image/svg+xml">
 <!-- Open Graph -->
 <meta property="og:title" content="Tríptico Bipolar — El trastorno bipolar en primera persona a través de la literatura">
 <meta property="og:description" content="Tres novelas que mapean las luces, las sombras y los límites de la mente humana. Edición limitada bajo demanda.">
@@ -51,7 +51,7 @@
   .hero{background:var(--gris-hero);color:var(--texto-claro);text-align:center;
     padding:64px 0 90px;position:relative;overflow:hidden}
   .brandbar{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:54px}
-  .brandbar .inf{width:54px}
+  .brandbar .inf{width:64px;color:#E0067A}
   .brandbar span{font-weight:700;letter-spacing:.32em;text-transform:uppercase;font-size:.78rem;color:#cfcfd6}
   .hero h1{font-size:clamp(2.1rem,5.4vw,4rem);max-width:14ch;margin:0 auto 22px;color:#fff}
   .hero h1 b{color:var(--fucsia)}
@@ -188,18 +188,52 @@
   #lightbox img{max-width:96vw;max-height:92vh;object-fit:contain;border-radius:6px;box-shadow:0 12px 60px rgba(0,0,0,.6)}
   #lightbox .lbclose{position:fixed;top:16px;right:24px;color:#fff;font-size:34px;line-height:1;cursor:pointer}
   @media(max-width:768px){.fc-prev{left:4px}.fc-next{right:4px}.fc-stage{min-height:460px}.fc-slide img{max-height:300px}}
+  .topnav{position:sticky;top:0;z-index:1000;background:rgba(12,12,14,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.09)}
+  .topnav .navwrap{max-width:var(--maxw);margin:0 auto;padding:9px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .topnav .brand{display:flex;align-items:center;gap:10px}
+  .topnav .brand .inf{width:38px;color:#E0067A}
+  .topnav .brand b{font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:.7rem;color:#eaeaee}
+  .navlinks{display:flex;align-items:center;gap:24px}
+  .navlinks a{font-size:.86rem;color:#cfcfd6;letter-spacing:.01em}
+  .navlinks a:hover{color:#fff}
+  .navlinks a.navcta{background:var(--fucsia);color:#fff;padding:9px 18px;border-radius:50px;font-weight:700}
+  .navlinks a.navcta:hover{background:var(--fucsia-d)}
+  .hamb{display:none;background:none;border:0;cursor:pointer;width:42px;height:36px;flex-direction:column;justify-content:center;gap:5px;padding:7px}
+  .hamb span{display:block;height:2px;width:100%;background:#fff;border-radius:2px;transition:.3s}
+  .hamb.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .hamb.open span:nth-child(2){opacity:0}
+  .hamb.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  [id]{scroll-margin-top:74px}
+  @media(max-width:860px){
+    .hamb{display:flex}
+    .navlinks{position:fixed;top:0;right:0;height:100vh;width:min(80vw,320px);background:#0d0d10;flex-direction:column;align-items:flex-start;justify-content:center;gap:28px;padding:40px 34px;transform:translateX(105%);transition:transform .32s ease;box-shadow:-12px 0 44px rgba(0,0,0,.55);z-index:1001}
+    .navlinks.open{transform:translateX(0)}
+    .navlinks a{font-size:1.15rem}
+  }
 </style>
 </head>
 <body>
+<nav class="topnav">
+  <div class="navwrap">
+    <a href="#top" class="brand" aria-label="Tríptico Bipolar — inicio"><svg class="inf" viewBox="168.1 106.4 1060.9 545.2" fill="currentColor" role="img" aria-label="Símbolo del Tríptico Bipolar"><g><path d="M 273.832031 377.402344 C 241.582031 357.472656 212.0625 358.886719 184.523438 384.195312 L 182.089844 383.035156 C 184.660156 367.953125 186.164062 352.605469 189.972656 337.839844 C 208.238281 267.007812 251.925781 215.863281 317.167969 183.054688 C 363.847656 159.585938 413.886719 152.507812 465.710938 160.488281 C 532.632812 170.796875 586.851562 204.332031 631.785156 252.929688 C 671.757812 296.164062 710.066406 340.886719 749.53125 384.585938 C 778.515625 416.671875 807.636719 448.675781 837.699219 479.769531 C 864.578125 507.570312 896.234375 528.425781 934.933594 537.050781 C 995.609375 550.574219 1048.636719 537.210938 1092.851562 492.992188 C 1094.320312 491.523438 1095.875 490.144531 1097.636719 488.496094 C 1120.324219 519.121094 1149.316406 531.089844 1186.730469 519.113281 C 1187.277344 519.78125 1187.820312 520.453125 1188.363281 521.125 C 1176.457031 534.800781 1165.683594 549.671875 1152.441406 561.945312 C 1100.773438 609.847656 1038.472656 631.546875 968.222656 629.800781 C 907.636719 628.292969 854.011719 606.425781 805.945312 570.492188 C 777.183594 548.992188 753.21875 522.785156 729.847656 495.871094 C 695.480469 456.292969 660.703125 417.066406 625.921875 377.847656 C 604.769531 354 583.898438 329.859375 561.789062 306.898438 C 531.671875 275.625 495.578125 254.960938 451.664062 247.667969 C 373.230469 234.644531 289.476562 283.671875 275.875 367.207031 C 275.398438 370.148438 274.710938 373.050781 273.832031 377.402344"/><path d="M 792.992188 362.3125 C 773.671875 340.765625 754.601562 319.664062 735.878906 298.265625 C 734.574219 296.769531 734.738281 292.210938 736.078125 290.523438 C 771.121094 246.5 810.570312 207.714844 862.652344 183.011719 C 994.6875 120.382812 1137.292969 179.582031 1192.664062 295.347656 C 1203.117188 317.199219 1211.058594 340.007812 1213.792969 364.246094 C 1214.53125 370.800781 1214.554688 377.4375 1215.011719 385.921875 C 1186.539062 361.074219 1157.152344 356.476562 1124.820312 375.691406 C 1122.25 364.769531 1120.9375 354.105469 1117.234375 344.324219 C 1096.902344 290.636719 1057.453125 258.871094 1000.761719 248.703125 C 933.152344 236.574219 880.480469 264.074219 836.34375 311.976562 C 821.640625 327.929688 807.992188 344.832031 792.992188 362.3125"/><path d="M 601.328125 416.65625 C 622.199219 438.988281 642.257812 460.449219 664.0625 483.78125 C 643.574219 506.300781 624.019531 529.421875 602.71875 550.851562 C 565.921875 587.863281 521.289062 612.355469 470.183594 623.761719 C 408.09375 637.617188 348.675781 628.214844 292.828125 598.292969 C 259.703125 580.542969 232.675781 555.871094 212.207031 524.410156 C 211.40625 523.179688 210.703125 521.890625 209.105469 519.199219 C 247.085938 529.832031 276.246094 518.875 297.21875 489.554688 C 311.0625 500.265625 323.546875 512.378906 338.195312 520.828125 C 397.828125 555.238281 470.21875 547.253906 522.625 502.613281 C 549.960938 479.328125 572.296875 451.742188 595.019531 424.402344 C 596.957031 422.070312 598.847656 419.703125 601.328125 416.65625"/><path d="M 273.101562 444.800781 C 272.765625 468.410156 252.847656 487.285156 228.652344 486.925781 C 205.523438 486.582031 185.320312 466.515625 185.535156 444.097656 C 185.757812 420.351562 205.65625 401.679688 230.617188 401.796875 C 253.769531 401.898438 273.429688 421.800781 273.101562 444.800781"/><path d="M 1163.40625 486.894531 C 1140.585938 486.882812 1120.84375 467.300781 1120.964844 444.796875 C 1121.09375 420.449219 1140.460938 401.882812 1165.617188 401.984375 C 1187.992188 402.074219 1208.585938 422.136719 1208.71875 443.96875 C 1208.851562 466.585938 1187.402344 486.90625 1163.40625 486.894531"/></g></svg><b>Tríptico Bipolar</b></a>
+    <button class="hamb" id="hambBtn" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="navlinks" id="navLinks">
+      <a href="#triptico-intro">El tríptico</a>
+      <a href="#fenix">Fénix</a>
+      <a href="#paradoja">Paradoja</a>
+      <a href="#kala">Kala</a>
+      <a href="#autor">El autor</a>
+      <a href="#reserva" class="navcta">Reservar</a>
+    </div>
+  </div>
+</nav>
+
 
 <!-- ================= HERO ================= -->
 <header class="hero">
   <div class="wrap">
     <div class="brandbar">
-      <svg class="inf" viewBox="0 0 120 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M30 30 C30 14,54 14,60 30 C66 46,90 46,90 30 C90 14,66 14,60 30 C54 46,30 46,30 30 Z" stroke="#E0067A" stroke-width="3.4" stroke-linecap="round"/>
-        <circle cx="60" cy="30" r="2.6" fill="#E0067A"/>
-      </svg>
+      <svg class="inf" viewBox="168.1 106.4 1060.9 545.2" fill="currentColor" role="img" aria-label="Símbolo del Tríptico Bipolar"><g><path d="M 273.832031 377.402344 C 241.582031 357.472656 212.0625 358.886719 184.523438 384.195312 L 182.089844 383.035156 C 184.660156 367.953125 186.164062 352.605469 189.972656 337.839844 C 208.238281 267.007812 251.925781 215.863281 317.167969 183.054688 C 363.847656 159.585938 413.886719 152.507812 465.710938 160.488281 C 532.632812 170.796875 586.851562 204.332031 631.785156 252.929688 C 671.757812 296.164062 710.066406 340.886719 749.53125 384.585938 C 778.515625 416.671875 807.636719 448.675781 837.699219 479.769531 C 864.578125 507.570312 896.234375 528.425781 934.933594 537.050781 C 995.609375 550.574219 1048.636719 537.210938 1092.851562 492.992188 C 1094.320312 491.523438 1095.875 490.144531 1097.636719 488.496094 C 1120.324219 519.121094 1149.316406 531.089844 1186.730469 519.113281 C 1187.277344 519.78125 1187.820312 520.453125 1188.363281 521.125 C 1176.457031 534.800781 1165.683594 549.671875 1152.441406 561.945312 C 1100.773438 609.847656 1038.472656 631.546875 968.222656 629.800781 C 907.636719 628.292969 854.011719 606.425781 805.945312 570.492188 C 777.183594 548.992188 753.21875 522.785156 729.847656 495.871094 C 695.480469 456.292969 660.703125 417.066406 625.921875 377.847656 C 604.769531 354 583.898438 329.859375 561.789062 306.898438 C 531.671875 275.625 495.578125 254.960938 451.664062 247.667969 C 373.230469 234.644531 289.476562 283.671875 275.875 367.207031 C 275.398438 370.148438 274.710938 373.050781 273.832031 377.402344"/><path d="M 792.992188 362.3125 C 773.671875 340.765625 754.601562 319.664062 735.878906 298.265625 C 734.574219 296.769531 734.738281 292.210938 736.078125 290.523438 C 771.121094 246.5 810.570312 207.714844 862.652344 183.011719 C 994.6875 120.382812 1137.292969 179.582031 1192.664062 295.347656 C 1203.117188 317.199219 1211.058594 340.007812 1213.792969 364.246094 C 1214.53125 370.800781 1214.554688 377.4375 1215.011719 385.921875 C 1186.539062 361.074219 1157.152344 356.476562 1124.820312 375.691406 C 1122.25 364.769531 1120.9375 354.105469 1117.234375 344.324219 C 1096.902344 290.636719 1057.453125 258.871094 1000.761719 248.703125 C 933.152344 236.574219 880.480469 264.074219 836.34375 311.976562 C 821.640625 327.929688 807.992188 344.832031 792.992188 362.3125"/><path d="M 601.328125 416.65625 C 622.199219 438.988281 642.257812 460.449219 664.0625 483.78125 C 643.574219 506.300781 624.019531 529.421875 602.71875 550.851562 C 565.921875 587.863281 521.289062 612.355469 470.183594 623.761719 C 408.09375 637.617188 348.675781 628.214844 292.828125 598.292969 C 259.703125 580.542969 232.675781 555.871094 212.207031 524.410156 C 211.40625 523.179688 210.703125 521.890625 209.105469 519.199219 C 247.085938 529.832031 276.246094 518.875 297.21875 489.554688 C 311.0625 500.265625 323.546875 512.378906 338.195312 520.828125 C 397.828125 555.238281 470.21875 547.253906 522.625 502.613281 C 549.960938 479.328125 572.296875 451.742188 595.019531 424.402344 C 596.957031 422.070312 598.847656 419.703125 601.328125 416.65625"/><path d="M 273.101562 444.800781 C 272.765625 468.410156 252.847656 487.285156 228.652344 486.925781 C 205.523438 486.582031 185.320312 466.515625 185.535156 444.097656 C 185.757812 420.351562 205.65625 401.679688 230.617188 401.796875 C 253.769531 401.898438 273.429688 421.800781 273.101562 444.800781"/><path d="M 1163.40625 486.894531 C 1140.585938 486.882812 1120.84375 467.300781 1120.964844 444.796875 C 1121.09375 420.449219 1140.460938 401.882812 1165.617188 401.984375 C 1187.992188 402.074219 1208.585938 422.136719 1208.71875 443.96875 C 1208.851562 466.585938 1187.402344 486.90625 1163.40625 486.894531"/></g></svg>
       <span>Tríptico Bipolar</span>
     </div>
     <p class="kicker">Una experiencia literaria transmedia</p>
@@ -215,7 +249,7 @@
 </header>
 
 <!-- ============ INTRO DEL TRÍPTICO (nexo) ============ -->
-<section class="book" id="triptico-intro">
+<section class="book light" id="triptico-intro">
   <div class="wrap"><div class="tri-intro">
     <p class="kicker">El tríptico</p>
     <h2>No son tres novelas. Son tres formas de mirar la misma mente.</h2>
@@ -342,7 +376,7 @@
 <!-- ================= CÓMO FUNCIONA ================= -->
 
 <!-- ================= AUTOR ================= -->
-<section class="book" id="autor">
+<section class="book dark" id="autor">
   <div class="wrap"><div class="grid">
     <div class="cover"><img src="assets/autor.png" alt="Álvaro Liras Torrente, autor del Tríptico Bipolar"></div>
     <div class="content">
@@ -546,5 +580,6 @@
 </script>
 <div id="lightbox"><span class="lbclose">&times;</span><img alt=""></div>
 <script>(function(){var lb=document.getElementById("lightbox"),img=lb.querySelector("img");document.querySelectorAll(".gitem").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();img.src=a.getAttribute("href");lb.classList.add("open");});});function c(){lb.classList.remove("open");img.src="";}lb.addEventListener("click",c);document.addEventListener("keydown",function(e){if(e.key==="Escape")c();});var fc=document.querySelector(".fenix-carousel");if(fc){var sl=fc.querySelectorAll(".fc-slide"),dt=fc.querySelectorAll(".fc-dot"),i=0;function go(n){i=(n+sl.length)%sl.length;sl.forEach(function(x){x.classList.remove("active")});dt.forEach(function(x){x.classList.remove("active")});sl[i].classList.add("active");if(dt[i])dt[i].classList.add("active");}fc.querySelector(".fc-next").addEventListener("click",function(){go(i+1)});fc.querySelector(".fc-prev").addEventListener("click",function(){go(i-1)});dt.forEach(function(d,n){d.addEventListener("click",function(){go(n)})});}})();</script>
+<script>(function(){var hb=document.getElementById("hambBtn"),nl=document.getElementById("navLinks");if(hb&&nl){hb.addEventListener("click",function(){var o=nl.classList.toggle("open");hb.classList.toggle("open",o);hb.setAttribute("aria-expanded",o);});nl.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){nl.classList.remove("open");hb.classList.remove("open");hb.setAttribute("aria-expanded","false");});});}var br=document.querySelector(".topnav .brand");if(br){br.addEventListener("click",function(e){e.preventDefault();window.scrollTo({top:0,behavior:"smooth"});});}})();</script>
 </body>
 </html>

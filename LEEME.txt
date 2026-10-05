@@ -1,76 +1,39 @@
-TRÍPTICO BIPOLAR — Long page de producción (tripticobipolar.es)
-================================================================
+TRÍPTICO BIPOLAR — web de producción (tripticobipolar.es)
+==========================================================
 
-QUÉ ES ESTO
------------
-Sitio estático autocontenido (un solo index.html con todo el CSS y el JS dentro),
-listo para subir a Vercel. Sigue el Documento de Copywriting Maestro V3:
-Hero → Fénix → Paradoja → Kala → Cierre del tríptico → Cómo funciona → FAQ →
-Formulario de reserva → Footer.
+Sitio estático: index.html con CSS y JS dentro, más 4 páginas legales
+(aviso-legal, privacidad, cookies, condiciones-compra). Se sube a Vercel tal cual
+(Framework Preset "Other", sin build).
 
-ESTRUCTURA DE CARPETAS
-----------------------
-web-tripticobipolar/
-  index.html
-  LEEME.txt
-  assets/
-    logo-blanco.svg        (ya incluido)
-    logo-fucsia.svg        (ya incluido)
-    simbolo-fucsia.svg     (ya incluido — se usa de favicon)
-    covers/   <-- AQUÍ van las portadas (las pones tú)
-    audio/    <-- AQUÍ van los audios (los pones tú)
+ASSETS
+------
+Imágenes en WebP optimizado (la carpeta pesa ~3 MB):
+  assets/covers/   trio, fenix, paradoja, kala (.webp)
+  assets/gallery/  fenix-1..7, paradoja-1..2, kala-1..2 (.webp)
+  assets/autor.webp
+  assets/og-trio.jpg   imagen para compartir en redes (1200x751, URL absoluta en las metas)
+Si sustituyes una imagen, conviértela a WebP (~1200 px de ancho) y mantén el nombre.
 
-LO QUE TIENES QUE AÑADIR (2 minutos)
-------------------------------------
-1) PORTADAS — en assets/covers/ con estos nombres exactos:
-     trio.png        (render de los 3 libros juntos — para el hero)
-     fenix.png       (portada de Las plumas del Fénix)
-     paradoja.png    (portada de Paradoja)
-     kala.png        (portada de Kala)
-   Si falta alguna, la web no se rompe: muestra un marco-placeholder en su lugar.
+AUDIOS
+------
+Son iframes de Google Drive. Se cargan solo al pulsar "Escuchar" (así no se
+instalan cookies de Google antes de tiempo y se mide el evento audio_play).
+Para cambiar un audio: edita el atributo data-src del botón .audio-ph
+(URL de Drive terminada en /preview). El archivo debe estar compartido
+como "cualquiera con el enlace".
 
-2) AUDIOS — en assets/audio/ con estos nombres exactos:
-     fenix.mp3       (tu 003-LAS_PLUMAS-DEL_FENIX...)
-     paradoja.mp3    (tu 004-PARADOJA_huir_hacia_delante)
-     kala.mp3        (tu 005-KALA_la_deidad_de_la_destruccion)
-   (No los pude copiar yo: pesan ~17 MB cada uno y el espacio de trabajo
-    escribe muy lento. Arrástralos tú y renómbralos.)
-   OJO: en assets/audio/ hay un "fenix.mp3" a medias (12 MB, copia
-   incompleta que se cortó). BÓRRALO y pon el tuyo completo encima.
-   Los audios 001 y 002 (generales) no se usan en la página; guárdalos por si
-   quieres un episodio "intro" más adelante.
+FORMULARIO / PEDIDOS
+--------------------
+El formulario envía el pedido a Formspree (variable FORMSPREE al final del
+index.html) y solo muestra "Reserva registrada" si el envío ha funcionado;
+si falla, avisa al cliente. Incluye selector de producto (pack 55 € o libro
+suelto 26/23/18 €), casilla de privacidad y campo trampa anti-spam.
+Los datos de Bizum e IBAN NO están en el HTML visible: se muestran al enviar
+(constantes BIZUM e IBAN en el JS).
 
-SUBIR A VERCEL
---------------
-Opción A (sin instalar nada):
-   1. Entra en vercel.com → New Project → Deploy.
-   2. Arrastra la carpeta web-tripticobipolar entera (o súbela a un repo de
-      GitHub y conéctalo).
-   3. Framework Preset: "Other". Output: la propia carpeta (sin build).
-   4. Deploy. Luego añade tu dominio tripticobipolar.es en Settings → Domains.
-
-Opción B (terminal):
-   npm i -g vercel
-   cd web-tripticobipolar
-   vercel        (sigue las preguntas; "vercel --prod" para producción)
-
-NOTA SOBRE EL FORMULARIO
-------------------------
-El formulario es un MVP sin backend: al enviar muestra en pantalla las
-instrucciones de pago (Bizum / transferencia) con el nombre del cliente.
-NO guarda el pedido en ningún sitio ni te avisa. Para recibir los pedidos por
-email, conéctalo a un servicio gratuito (Formspree, Vercel Forms o similar):
-   - Cambia <form id="reservaForm"> por la action del servicio, o
-   - dímelo y te lo dejo cableado.
-Recuerda rellenar los datos reales de pago (número de Bizum e IBAN) — ahora
-están como XXXX en el JavaScript del final del index.html.
-
-PENDIENTE / RECOMENDADO
------------------------
-- Testimonios reales de lectores (bloque de prueba social) — no incluido para
-  no inventar reseñas; lo añadimos cuando tengas citas verificables.
-- Cluster de keywords (Nuria) para afinar los H2/H3 y meter long-tail.
-- Color: la web usa el fucsia de marca #E0067A. El V3 mencionaba #FF0066;
-  si prefieres ese, cámbialo en la variable --fucsia (arriba del index.html).
-- Páginas legales (Aviso legal / Privacidad / Condiciones) — los enlaces del
-  footer apuntan a # de momento.
+PENDIENTE
+---------
+- Testimonio real de un primer lector y audio con la voz del autor
+  (bloques comentados en la sección "La trinchera compartida").
+- Confirmar "32 años con trastorno bipolar" frente al inicio en 1986.
+- Páginas dedicadas por libro (ver sitemap.xml, bloque comentado) cuando existan.

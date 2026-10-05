@@ -32,14 +32,19 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Tríptico Bipolar — Novelas sobre el trastorno bipolar">
 <meta name="twitter:description" content="Tres novelas que mapean las luces, las sombras y los límites de la mente humana. Edición limitada bajo demanda.">
-<meta name="twitter:image" content="assets/covers/trio.png">
+<meta name="twitter:image" content="https://tripticobipolar.es/assets/og-trio.jpg">
 <link rel="icon" href="assets/simbolo-infinito.svg" type="image/svg+xml">
 <!-- Open Graph -->
 <meta property="og:title" content="Tríptico Bipolar — El trastorno bipolar en primera persona a través de la literatura">
 <meta property="og:description" content="Tres novelas que mapean las luces, las sombras y los límites de la mente humana. Edición limitada bajo demanda.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://tripticobipolar.es">
-<meta property="og:image" content="assets/covers/trio.png">
+<meta property="og:image" content="https://tripticobipolar.es/assets/og-trio.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="751">
+<meta property="og:image:alt" content="Los tres libros del Tríptico Bipolar: Las plumas del Fénix, Paradoja y Kala">
+<meta property="og:site_name" content="Tríptico Bipolar">
+<meta property="og:locale" content="es_ES">
 <style>
   :root{
     --fucsia:#E0067A; --fucsia-d:#b30560;
@@ -51,7 +56,7 @@
   html{scroll-behavior:smooth}
   body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     color:var(--tinta);line-height:1.6;background:#000;-webkit-font-smoothing:antialiased}
-  img{max-width:100%;display:block}
+  img{max-width:100%;height:auto;display:block}
   a{color:inherit;text-decoration:none}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
   .btn{display:inline-block;background:var(--fucsia);color:#fff;font-weight:700;
@@ -102,11 +107,13 @@
   .pod{border-radius:var(--r);padding:20px 22px;margin:24px 0;background:rgba(224,6,122,.07);
     border:1px solid rgba(224,6,122,.28)}
   .book.light .pod{background:#fdf2f8;border-color:#f4cfe4}
-  .pod h4{color:var(--fucsia);font-size:.95rem;margin-bottom:8px;letter-spacing:.02em}
+  .pod h3{color:var(--fucsia);font-size:.95rem;margin-bottom:8px;letter-spacing:.02em}
   .pod .guion{font-style:italic;border-left:3px solid var(--fucsia);padding-left:14px;
     margin:12px 0;color:#b9b9c2;font-size:.95rem}
   .book.light .pod .guion{color:#555}
-  audio{width:100%;margin-top:10px;height:38px}
+  .book.light .micro{color:#6b6b73}
+  .edition{color:var(--mute);font-size:.92rem;margin:18px 0 0 !important}
+  .book.light .edition{color:#6b6b73}
   .price{font-weight:700;margin:18px 0 14px;font-size:1.05rem}
   .price s{color:var(--mute);font-weight:400;margin-right:6px}
 
@@ -129,7 +136,7 @@
   .step{background:#161619;border:1px solid #26262e;border-radius:12px;padding:20px}
   .step .n{width:34px;height:34px;border-radius:50%;background:var(--fucsia);color:#fff;
     display:flex;align-items:center;justify-content:center;font-weight:800;margin-bottom:12px}
-  .step h5{color:#fff;font-size:1rem;margin-bottom:6px}
+  .step h3{color:#fff;font-size:1rem;margin-bottom:6px}
   .step p{color:#a8a8b2;font-size:.9rem}
 
   /* ---------- FAQ ---------- */
@@ -158,6 +165,11 @@
   .pay input{accent-color:var(--fucsia)}
   .consent{display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:#a8a8b2;margin:14px 0 18px}
   .consent input{margin-top:3px;accent-color:var(--fucsia)}
+  .consent a{color:var(--fucsia);text-decoration:underline}
+  .gracias.err{background:#2a1316;border-color:#7a2a33;color:#ffd9dd}
+  .pay input:focus-visible,.consent input:focus-visible,.audio-ph:focus-visible{outline:2px solid var(--fucsia);outline-offset:2px}
+  .pay label:has(input:checked){border-color:var(--fucsia);background:rgba(224,6,122,.1)}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important}}
   form .btn{width:100%}
   .gracias{display:none;background:#13241a;border:1px solid #2a5e3f;border-radius:14px;
     padding:20px;margin-top:18px;color:#d6f5e3;font-size:.95rem}
@@ -185,7 +197,13 @@
   .tri-intro{max-width:760px;margin:0 auto;text-align:center}
   .tri-intro .pod{text-align:left;margin-top:22px}
   .tri-intro .ep{margin:14px 0 6px;font-weight:600}
-  iframe.audio{border:0;border-radius:8px;width:100%;display:block;background:#000}
+  iframe.audio{border:0;border-radius:12px;width:100%;max-width:440px;height:80px;display:block;margin:10px auto 0;background:#000}
+  .audio-ph{display:flex;align-items:center;justify-content:center;gap:14px;width:100%;max-width:440px;height:80px;margin:10px auto 0;border-radius:12px;border:1px solid rgba(224,6,122,.55);background:#0e0e11;color:#fff;font:inherit;font-weight:700;cursor:pointer;transition:background .2s}
+  .audio-ph:hover{background:#1c1c22}
+  .audio-ph svg{width:34px;height:34px;fill:var(--fucsia);flex:0 0 auto}
+  .audio-ph span{text-align:left;line-height:1.3}
+  .audio-ph small{display:block;font-weight:400;color:#a8a8b2;font-size:.75rem}
+  .pod .ep{text-align:center}
   .gallery{margin-top:30px}
   .gtitle{margin:0 0 14px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;opacity:.65}
   .gthumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px}
@@ -196,19 +214,19 @@
   .fc-stage{position:relative;min-height:520px;overflow:hidden}
   .fc-slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .5s;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
   .fc-slide.active{opacity:1;visibility:visible;position:relative}
-  .fc-slide img{max-width:100%;max-height:400px;object-fit:contain;border-radius:6px;border:1px solid #333;box-shadow:0 8px 20px rgba(0,0,0,.6);margin-bottom:18px}
-  .fc-title{font-size:1.1rem;color:#d4af37;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px}
+  .fc-slide img{width:auto;height:auto;max-width:100%;max-height:400px;object-fit:contain;border-radius:6px;border:1px solid #333;box-shadow:0 8px 20px rgba(0,0,0,.6);margin-bottom:18px}
+  .fc-title{font-size:1.1rem;color:var(--fucsia);letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px}
   .fc-desc{font-size:1rem;color:#ccc;max-width:560px;line-height:1.5;margin:0 auto}
-  .fc-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(212,175,55,.15);border:1px solid #d4af37;color:#d4af37;width:42px;height:42px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:5}
-  .fc-btn:hover{background:#d4af37;color:#0b0b0b}
+  .fc-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(224,6,122,.15);border:1px solid var(--fucsia);color:var(--fucsia);width:42px;height:42px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:5}
+  .fc-btn:hover{background:var(--fucsia);color:#fff}
   .fc-prev{left:-16px}.fc-next{right:-16px}
   .fc-dots{display:flex;justify-content:center;gap:9px;margin-top:18px;flex-wrap:wrap}
   .fc-dot{width:10px;height:10px;border-radius:50%;background:#333;border:0;cursor:pointer}
-  .fc-dot.active{background:#d4af37;box-shadow:0 0 8px #d4af37}
+  .fc-dot.active{background:var(--fucsia);box-shadow:0 0 8px var(--fucsia)}
   #lightbox{position:fixed;inset:0;background:rgba(0,0,0,.93);display:none;align-items:center;justify-content:center;z-index:9999;padding:20px;cursor:zoom-out}
   #lightbox.open{display:flex}
   #lightbox img{max-width:96vw;max-height:92vh;object-fit:contain;border-radius:6px;box-shadow:0 12px 60px rgba(0,0,0,.6)}
-  #lightbox .lbclose{position:fixed;top:16px;right:24px;color:#fff;font-size:34px;line-height:1;cursor:pointer}
+  #lightbox .lbclose{position:fixed;top:16px;right:24px;color:#fff;font-size:34px;line-height:1;cursor:pointer;background:none;border:0;padding:4px 10px}
   @media(max-width:768px){.fc-prev{left:4px}.fc-next{right:4px}.fc-stage{min-height:460px}.fc-slide img{max-height:300px}}
   .topnav{position:sticky;top:0;z-index:1000;background:rgba(12,12,14,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.09)}
   .topnav .navwrap{max-width:var(--maxw);margin:0 auto;padding:9px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
@@ -228,8 +246,8 @@
   [id]{scroll-margin-top:74px}
   @media(max-width:860px){
     .hamb{display:flex}
-    .navlinks{position:fixed;top:0;right:0;height:100vh;width:min(80vw,320px);background:#0d0d10;flex-direction:column;align-items:flex-start;justify-content:center;gap:28px;padding:40px 34px;transform:translateX(105%);transition:transform .32s ease;box-shadow:-12px 0 44px rgba(0,0,0,.55);z-index:1001}
-    .navlinks.open{transform:translateX(0)}
+    .navlinks{position:fixed;top:0;right:0;height:100vh;width:min(80vw,320px);background:#0d0d10;flex-direction:column;align-items:flex-start;justify-content:center;gap:28px;padding:40px 34px;transform:translateX(105%);visibility:hidden;transition:transform .32s ease,visibility 0s .32s;box-shadow:-12px 0 44px rgba(0,0,0,.55);z-index:1001}
+    .navlinks.open{transform:translateX(0);visibility:visible;transition:transform .32s ease}
     .navlinks a{font-size:1.15rem}
   }
 </style>
@@ -264,8 +282,8 @@
     <a href="#triptico-intro" class="btn">Empezar a leer / Escuchar gratis</a>
     <p class="micro">Cultura sostenible: libros impresos bajo demanda, de forma artesanal y exclusiva para ti.</p>
     <div class="trio">
-      <img src="assets/covers/trio.png" alt="Los tres libros del Tríptico Bipolar: Las plumas del Fénix, Paradoja y Kala"
-           onerror="this.outerHTML='&lt;div class=\'ph\'&gt;[ Render de los 3 libros — assets/covers/trio.png ]&lt;/div&gt;'">
+      <img src="assets/covers/trio.webp" width="1400" height="876" fetchpriority="high" alt="Los tres libros del Tríptico Bipolar: Las plumas del Fénix, Paradoja y Kala"
+           onerror="this.outerHTML='&lt;div class=\'ph\'&gt;[ Render de los 3 libros — assets/covers/trio.webp ]&lt;/div&gt;'">
     </div>
   </div>
 </header>
@@ -279,12 +297,12 @@
     <p><b>Las plumas del Fénix</b> es el desgarro del origen: la crisis en carne viva, el fuego que rompe y enseña a volar. <b>Paradoja</b> es lo que viene después: la huida hacia adelante de quien corre para no pensar. Y <b>Kala</b> es el regreso: la lógica fría que, al final, se atreve a mirarse y a sanar.</p>
     <p>Fuego, huida y redención. Tres caras de una misma mente bipolar, escritas desde dentro y sin anestesia.</p>
     <div class="pod">
-      <h4>El hilo que une los tres libros</h4>
+      <h3>El hilo que une los tres libros</h3>
       <p>Antes de abrir el tríptico, escucha de qué está hecho. Dos episodios sobre el terreno común de las tres novelas.</p>
       <p class="ep">Parte 1 — Cuando el cerebro se cree dios</p>
-      <iframe class="audio" src="https://drive.google.com/file/d/1VK242CcMjVn7fKqcPVofg9dUqVBxLNnP/preview" width="100%" height="66" allow="autoplay" loading="lazy" title="Podcast del nexo — Parte 1"></iframe>
+      <button type="button" class="audio-ph" data-src="https://drive.google.com/file/d/1VK242CcMjVn7fKqcPVofg9dUqVBxLNnP/preview" data-title="Podcast del nexo — Parte 1" aria-label="Escuchar: Podcast del nexo — Parte 1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><span>Escuchar<small>Se carga desde Google Drive al pulsar</small></span></button>
       <p class="ep">Parte 2 — Anatomía de la huida emocional</p>
-      <iframe class="audio" src="https://drive.google.com/file/d/18kasT0l3HSrw3VKCvqqtuVjf5L1oDZPB/preview" width="100%" height="66" allow="autoplay" loading="lazy" title="Podcast del nexo — Parte 2"></iframe>
+      <button type="button" class="audio-ph" data-src="https://drive.google.com/file/d/18kasT0l3HSrw3VKCvqqtuVjf5L1oDZPB/preview" data-title="Podcast del nexo — Parte 2" aria-label="Escuchar: Podcast del nexo — Parte 2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><span>Escuchar<small>Se carga desde Google Drive al pulsar</small></span></button>
     </div>
     <a href="#triptico" class="btn">Abre el tríptico completo &rarr;</a>
   </div></div>
@@ -296,8 +314,8 @@
   <div class="wrap">
     <div class="grid">
       <div class="cover">
-        <img src="assets/covers/fenix.png" alt="Portada de Las plumas del Fénix"
-             onerror="this.outerHTML='&lt;div class=\'ph\'&gt;[ Portada — assets/covers/fenix.png ]&lt;/div&gt;'">
+        <img src="assets/covers/fenix.webp" width="900" height="563" loading="lazy" decoding="async" alt="Portada de Las plumas del Fénix"
+             onerror="this.outerHTML='&lt;div class=\'ph\'&gt;[ Portada — assets/covers/fenix.webp ]&lt;/div&gt;'">
       </div>
       <div class="content">
         <p class="kicker">Panel I · Las plumas del Fénix</p>
@@ -310,18 +328,18 @@
         <p>Desde ahí, las dos esquinas del abismo: la parálisis gélida de la <b>depresión</b> y la euforia mística e incontrolable de la <b>fase maníaca</b>.</p>
         <p>Duele al leerla. Pero por fin alguien lo cuenta como es.</p>
         <div class="pod">
-          <h4>El podcast · Al pie de la letra — el trasfondo real y literario</h4>
+          <h3>El podcast · Al pie de la letra — el trasfondo real y literario</h3>
           <p>El editor Gonzalo Martín conversa con la voz que hay detrás de la obra —quien vivió en primera persona estos estados— sobre la delgada línea que separa el impulso creativo del colapso.</p>
-          <iframe class="audio" src="https://drive.google.com/file/d/1ppEEqkZ16fWIIqFXGygv8DBuDGHVUBzw/preview" width="100%" height="66" allow="autoplay" loading="lazy" title="Audio: Las plumas del Fénix"></iframe>
+          <button type="button" class="audio-ph" data-src="https://drive.google.com/file/d/1ppEEqkZ16fWIIqFXGygv8DBuDGHVUBzw/preview" data-title="Audio: Las plumas del Fénix" aria-label="Escuchar: Audio: Las plumas del Fénix"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><span>Escuchar<small>Se carga desde Google Drive al pulsar</small></span></button>
         </div>
-        <p class="price"><s>Edición física premium · papel de alto gramaje</s></p>
+        <p class="edition">Edición física premium · papel de alto gramaje</p>
         <p class="price">26 €</p>
-        <a href="#reserva" class="btn ghost">Apoyar el proyecto · “Las plumas del Fénix” en papel</a>
-        <p class="micro">Impresión artesanal bajo demanda. Envío directo de imprenta a tu casa en 5-7 días laborables.</p>
+        <a href="#reserva" class="btn ghost" data-libro="fenix">Apoyar el proyecto · “Las plumas del Fénix” en papel</a>
+        <p class="micro">Impresión artesanal bajo demanda. Envío directo de imprenta a tu casa, 5-7 días laborables después de la impresión.</p>
       </div>
     </div>
   </div>
-  <div class="wrap"><h4 class="gtitle">Galería · Las plumas del Fénix</h4><div class="fenix-carousel"><button class="fc-btn fc-prev" aria-label="Anterior">&#10094;</button><div class="fc-stage"><div class="fc-slide active"><img src="assets/gallery/fenix-1.jpg" alt="La portada" loading="lazy"><div class="fc-title">La portada</div><p class="fc-desc">&laquo;A veces el fuego no destruye: enseña a volar.&raquo; El inicio del viaje.</p></div><div class="fc-slide"><img src="assets/gallery/fenix-3.png" alt="Fase 1 · El nacimiento" loading="lazy"><div class="fc-title">Fase 1 · El nacimiento</div><p class="fc-desc">El dolor de las plumas. La fractura inicial: el fuego interno empieza a romper desde el pecho.</p></div><div class="fc-slide"><img src="assets/gallery/fenix-4.png" alt="Fase 2 · El apogeo" loading="lazy"><div class="fc-title">Fase 2 · El apogeo</div><p class="fc-desc">Las alas extendidas en toda su majestuosidad. El vuelo en su punto más alto.</p></div><div class="fc-slide"><img src="assets/gallery/fenix-5.png" alt="Fase 3 · El incendio" loading="lazy"><div class="fc-title">Fase 3 · El incendio</div><p class="fc-desc">El Fénix arde. La catarsis absoluta: el fuego consume el alma.</p></div><div class="fc-slide"><img src="assets/gallery/fenix-6.png" alt="Fase 4 · La agonía" loading="lazy"><div class="fc-title">Fase 4 · La agonía</div><p class="fc-desc">La pira interior. El peso del desplome tras el incendio.</p></div><div class="fc-slide"><img src="assets/gallery/fenix-7.png" alt="Fase 5 · El silencio" loading="lazy"><div class="fc-title">Fase 5 · El silencio</div><p class="fc-desc">El silencio del fuego. El resurgir, la aceptación y la paz tras quemarlo todo.</p></div><div class="fc-slide"><img src="assets/gallery/fenix-2.jpg" alt="La contraportada" loading="lazy"><div class="fc-title">La contraportada</div><p class="fc-desc">El cierre del ciclo, en dos palabras: &laquo;Ardí, nací.&raquo;</p></div><div class="fc-slide"><img src="assets/gallery/../autor.png" alt="El autor, hoy" loading="lazy"><div class="fc-title">El autor, hoy</div><p class="fc-desc">Ardí, nací. Y este es el que lo escribe, hoy. El final del ciclo no es un libro: es la cara de quien aprendió a volar.</p></div></div><button class="fc-btn fc-next" aria-label="Siguiente">&#10095;</button><div class="fc-dots"><button class="fc-dot active" aria-label="Ir a 1"></button><button class="fc-dot" aria-label="Ir a 2"></button><button class="fc-dot" aria-label="Ir a 3"></button><button class="fc-dot" aria-label="Ir a 4"></button><button class="fc-dot" aria-label="Ir a 5"></button><button class="fc-dot" aria-label="Ir a 6"></button><button class="fc-dot" aria-label="Ir a 7"></button><button class="fc-dot" aria-label="Ir a 8"></button></div></div></div>
+  <div class="wrap"><h3 class="gtitle">Galería · Las plumas del Fénix</h3><div class="fenix-carousel"><button class="fc-btn fc-prev" aria-label="Anterior">&#10094;</button><div class="fc-stage"><div class="fc-slide active"><img src="assets/gallery/fenix-1.webp" width="1200" height="1697" alt="La portada" loading="lazy"><div class="fc-title">La portada</div><p class="fc-desc">&laquo;A veces el fuego no destruye: enseña a volar.&raquo; El inicio del viaje.</p></div><div class="fc-slide"><img src="assets/gallery/fenix-3.webp" width="1200" height="1756" alt="Fase 1 · El nacimiento" loading="lazy"><div class="fc-title">Fase 1 · El nacimiento</div><p class="fc-desc">El dolor de las plumas. La fractura inicial: el fuego interno empieza a romper desde el pecho.</p></div><div class="fc-slide"><img src="assets/gallery/fenix-4.webp" width="1200" height="1756" alt="Fase 2 · El apogeo" loading="lazy"><div class="fc-title">Fase 2 · El apogeo</div><p class="fc-desc">Las alas extendidas en toda su majestuosidad. El vuelo en su punto más alto.</p></div><div class="fc-slide"><img src="assets/gallery/fenix-5.webp" width="1200" height="1756" alt="Fase 3 · El incendio" loading="lazy"><div class="fc-title">Fase 3 · El incendio</div><p class="fc-desc">El Fénix arde. La catarsis absoluta: el fuego consume el alma.</p></div><div class="fc-slide"><img src="assets/gallery/fenix-6.webp" width="1200" height="1756" alt="Fase 4 · La agonía" loading="lazy"><div class="fc-title">Fase 4 · La agonía</div><p class="fc-desc">La pira interior. El peso del desplome tras el incendio.</p></div><div class="fc-slide"><img src="assets/gallery/fenix-7.webp" width="1200" height="1756" alt="Fase 5 · El silencio" loading="lazy"><div class="fc-title">Fase 5 · El silencio</div><p class="fc-desc">El silencio del fuego. El resurgir, la aceptación y la paz tras quemarlo todo.</p></div><div class="fc-slide"><img src="assets/gallery/fenix-2.webp" width="1200" height="1697" alt="La contraportada" loading="lazy"><div class="fc-title">La contraportada</div><p class="fc-desc">El cierre del ciclo, en dos palabras: &laquo;Ardí, nací.&raquo;</p></div><div class="fc-slide"><img src="assets/autor.webp" alt="El autor, hoy" loading="lazy"><div class="fc-title">El autor, hoy</div><p class="fc-desc">Ardí, nací. Y este es el que lo escribe, hoy. El final del ciclo no es un libro: es la cara de quien aprendió a volar.</p></div></div><button class="fc-btn fc-next" aria-label="Siguiente">&#10095;</button><div class="fc-dots"><button class="fc-dot active" aria-label="Ir a 1"></button><button class="fc-dot" aria-label="Ir a 2"></button><button class="fc-dot" aria-label="Ir a 3"></button><button class="fc-dot" aria-label="Ir a 4"></button><button class="fc-dot" aria-label="Ir a 5"></button><button class="fc-dot" aria-label="Ir a 6"></button><button class="fc-dot" aria-label="Ir a 7"></button><button class="fc-dot" aria-label="Ir a 8"></button></div></div></div>
 </section>
 
 <!-- ================= 2 · PARADOJA ================= -->
@@ -329,8 +347,8 @@
   <div class="wrap">
     <div class="grid">
       <div class="cover">
-        <img src="assets/covers/paradoja.png" alt="Portada de Paradoja"
-             onerror="this.outerHTML='&lt;div class=\'ph\'&gt;[ Portada — assets/covers/paradoja.png ]&lt;/div&gt;'">
+        <img src="assets/covers/paradoja.webp" width="900" height="563" loading="lazy" decoding="async" alt="Portada de Paradoja"
+             onerror="this.outerHTML='&lt;div class=\'ph\'&gt;[ Portada — assets/covers/paradoja.webp ]&lt;/div&gt;'">
       </div>
       <div class="content">
         <p class="kicker" style="color:var(--fucsia)">Panel II · Paradoja</p>
@@ -342,18 +360,18 @@
         <p>Hay una cara del <b>trastorno bipolar</b> de la que casi nadie habla: el terror a quedarse quieto.</p>
         <p><em>Paradoja</em> lo cuenta hasta el final. Y el final esconde un truco que solo entenderás al cerrar el libro.</p>
         <div class="pod">
-          <h4>El podcast · Al pie de la letra — desnudando la mente hiperactiva</h4>
+          <h3>El podcast · Al pie de la letra — desnudando la mente hiperactiva</h3>
           <p>Los mecanismos de evasión, el autosabotaje y el peso del ruido mental en el día a día.</p>
-          <iframe class="audio" src="https://drive.google.com/file/d/1yGPh-hinoCuaM7unOrZpkVp5wIdJT7Bj/preview" width="100%" height="66" allow="autoplay" loading="lazy" title="Audio: Paradoja"></iframe>
+          <button type="button" class="audio-ph" data-src="https://drive.google.com/file/d/1yGPh-hinoCuaM7unOrZpkVp5wIdJT7Bj/preview" data-title="Audio: Paradoja" aria-label="Escuchar: Audio: Paradoja"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><span>Escuchar<small>Se carga desde Google Drive al pulsar</small></span></button>
         </div>
-        <p class="price"><s>Edición física premium · encuadernación rústica</s></p>
+        <p class="edition">Edición física premium · encuadernación rústica</p>
         <p class="price">23 €</p>
-        <a href="#reserva" class="btn ghost">Apoyar el proyecto · “Paradoja” en papel</a>
-        <p class="micro" style="color:#888">Producción sostenible sin excedentes. En tu biblioteca la semana que viene.</p>
+        <a href="#reserva" class="btn ghost" data-libro="paradoja">Apoyar el proyecto · “Paradoja” en papel</a>
+        <p class="micro">Producción sostenible sin excedentes. En tu biblioteca 5-7 días laborables después de la impresión.</p>
       </div>
     </div>
   </div>
-  <div class="wrap"><div class="gallery"><h4 class="gtitle">Galería · Paradoja</h4><div class="gthumbs"><a href="assets/gallery/paradoja-1.jpg" class="gitem"><img src="assets/gallery/paradoja-1.jpg" alt="Portada" loading="lazy"></a><a href="assets/gallery/paradoja-2.jpg" class="gitem"><img src="assets/gallery/paradoja-2.jpg" alt="Contraportada" loading="lazy"></a></div></div></div>
+  <div class="wrap"><div class="gallery"><h3 class="gtitle">Galería · Paradoja</h3><div class="gthumbs"><a href="assets/gallery/paradoja-1.webp" class="gitem" aria-label="Ampliar: Portada"><img src="assets/gallery/paradoja-1.webp" width="1200" height="1697" alt="Portada" loading="lazy"></a><a href="assets/gallery/paradoja-2.webp" class="gitem" aria-label="Ampliar: Contraportada"><img src="assets/gallery/paradoja-2.webp" width="1200" height="1697" alt="Contraportada" loading="lazy"></a></div></div></div>
 </section>
 
 <!-- ================= 3 · KALA ================= -->
@@ -361,8 +379,8 @@
   <div class="wrap">
     <div class="grid">
       <div class="cover">
-        <img src="assets/covers/kala.png" alt="Portada de Kala"
-             onerror="this.outerHTML='&lt;div class=\'ph\'&gt;[ Portada — assets/covers/kala.png ]&lt;/div&gt;'">
+        <img src="assets/covers/kala.webp" width="900" height="563" loading="lazy" decoding="async" alt="Portada de Kala"
+             onerror="this.outerHTML='&lt;div class=\'ph\'&gt;[ Portada — assets/covers/kala.webp ]&lt;/div&gt;'">
       </div>
       <div class="content">
         <p class="kicker">Panel III · Kala</p>
@@ -374,18 +392,18 @@
         <p>Un relato sobre la <b>soledad</b> extrema y la conexión que llega de donde menos la esperas.</p>
         <p>Y como todo en este proyecto, también puedes escucharlo: el podcast y el formato digital son parte de la historia.</p>
         <div class="pod">
-          <h4>El podcast · Al pie de la letra — inteligencia artificial y conciencia</h4>
+          <h3>El podcast · Al pie de la letra — inteligencia artificial y conciencia</h3>
           <p>¿Puede una mente lógica sanar a través de la creación tecnológica? Una conversación sobre neurodivergencia y el futuro de la ética humana.</p>
-          <iframe class="audio" src="https://drive.google.com/file/d/1M9HC6jdtPIRardl3ozf6FUASwxJSnRSi/preview" width="100%" height="66" allow="autoplay" loading="lazy" title="Audio: Kala"></iframe>
+          <button type="button" class="audio-ph" data-src="https://drive.google.com/file/d/1M9HC6jdtPIRardl3ozf6FUASwxJSnRSi/preview" data-title="Audio: Kala" aria-label="Escuchar: Audio: Kala"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><span>Escuchar<small>Se carga desde Google Drive al pulsar</small></span></button>
         </div>
-        <p class="price"><s>Edición de bolsillo · formato ágil</s></p>
+        <p class="edition">Edición de bolsillo · formato ágil</p>
         <p class="price">18 €</p>
-        <a href="#reserva" class="btn ghost">Apoyar el proyecto · “Kala” en papel</a>
-        <p class="micro">Envío directo sin intermediarios. Impreso exclusivamente para ti en 5-7 días.</p>
+        <a href="#reserva" class="btn ghost" data-libro="kala">Apoyar el proyecto · “Kala” en papel</a>
+        <p class="micro">Envío directo sin intermediarios. Impreso exclusivamente para ti: llega 5-7 días laborables después de la impresión.</p>
       </div>
     </div>
   </div>
-  <div class="wrap"><div class="gallery"><h4 class="gtitle">Galería · Kala</h4><div class="gthumbs"><a href="assets/gallery/kala-1.jpg" class="gitem"><img src="assets/gallery/kala-1.jpg" alt="Portada" loading="lazy"></a><a href="assets/gallery/kala-2.png" class="gitem"><img src="assets/gallery/kala-2.png" alt="Contraportada" loading="lazy"></a></div></div></div>
+  <div class="wrap"><div class="gallery"><h3 class="gtitle">Galería · Kala</h3><div class="gthumbs"><a href="assets/gallery/kala-1.webp" class="gitem" aria-label="Ampliar: Portada"><img src="assets/gallery/kala-1.webp" width="1200" height="1697" alt="Portada" loading="lazy"></a><a href="assets/gallery/kala-2.webp" class="gitem" aria-label="Ampliar: Contraportada"><img src="assets/gallery/kala-2.webp" width="1054" height="1492" alt="Contraportada" loading="lazy"></a></div></div></div>
 </section>
 
 <!-- ================= LA TRINCHERA COMPARTIDA ================= -->
@@ -398,8 +416,8 @@
     <p>No estás solo en esto. Esa es, en el fondo, la única razón de que estas páginas existan.</p>
     <!-- ===== PENDIENTE 1 · AUDIO: fragmento de ~1 min con la VOZ REAL de Álvaro. NO usar el podcast (voces sintéticas). Descomenta y pon la URL:
     <div class="pod">
-      <h4>Un minuto, mi voz</h4>
-      <iframe class="audio" src="URL_DEL_AUDIO/preview" width="100%" height="66" allow="autoplay" loading="lazy" title="Un minuto, la voz del autor"></iframe>
+      <h3>Un minuto, mi voz</h3>
+      <button type="button" class="audio-ph" data-src="URL_DEL_AUDIO/preview" data-title="Un minuto, la voz del autor" aria-label="Escuchar: Un minuto, la voz del autor"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><span>Escuchar<small>Se carga desde Google Drive al pulsar</small></span></button>
     </div>
     ===== -->
     <!-- ===== PENDIENTE 2 · CITA real y textual de un primer lector (máx 3 líneas). NO inventar. Descomenta y rellena:
@@ -417,11 +435,11 @@
     <p>Por separado, la colección vale 67 €. Al saltarnos almacenes, distribuidoras y comisiones de librería, te llevas el tríptico directo de imprenta a un precio exclusivo.</p>
     <div class="offer">
       <p class="pack"><s>67 €</s> &nbsp; <b>55 €</b> &nbsp; tríptico completo (3 libros físicos) · ahorras 12 €</p>
-      <p class="gift"><strong>Obsequio editorial incluido:</strong> descarga inmediata de los audiolibros completos narrados + PDF exclusivo con el cuaderno de notas de las sesiones del podcast.</p>
+      <p class="gift"><strong>Obsequio editorial incluido:</strong> los audiolibros completos narrados + un PDF exclusivo con el cuaderno de notas de las sesiones del podcast, que te enviamos por email en cuanto confirmamos tu pago.</p>
     </div>
-    <a href="#reserva" class="btn" id="cta-pack-hipernodo">Reservar el tríptico completo — 55 €</a>
-    <p class="micro">Impresión bajo demanda · recíbelo la semana que viene.</p>
-    <p class="trust">Pago seguro&nbsp;·&nbsp;Envío certificado con seguimiento&nbsp;·&nbsp;Sin intermediarios</p>
+    <a href="#reserva" class="btn" id="cta-pack-hipernodo" data-libro="pack">Reservar el tríptico completo — 55 €</a>
+    <p class="micro">Impresión bajo demanda · se imprime el próximo lunes y llega en 5-7 días laborables.</p>
+    <p class="trust">Pago por Bizum o transferencia&nbsp;·&nbsp;Envío certificado con seguimiento&nbsp;·&nbsp;Sin intermediarios</p>
   </div>
 </section>
 
@@ -430,7 +448,7 @@
 <!-- ================= AUTOR ================= -->
 <section class="book dark" id="autor">
   <div class="wrap"><div class="grid">
-    <div class="cover"><img src="assets/autor.png" alt="Álvaro Liras Torrente, autor del Tríptico Bipolar"></div>
+    <div class="cover"><img src="assets/autor.webp" width="900" height="1101" loading="lazy" decoding="async" alt="Álvaro Liras Torrente, autor del Tríptico Bipolar"></div>
     <div class="content">
       <p class="kicker">El autor</p>
       <h2>Quién escribe esto</h2>
@@ -449,10 +467,10 @@
     <h2>Edición bajo demanda — el ciclo de la lista de los lunes</h2>
     <p>Transparencia total: <strong>tripticobipolar.es</strong> es un proyecto personal e independiente, no una multinacional automatizada. Los libros no esperan en un almacén frío; nacen en la imprenta solo cuando tú decides leerlos.</p>
     <div class="steps">
-      <div class="step"><div class="n">1</div><h5>Pides hoy, entras en la lista</h5><p>Tu reserva queda registrada y entra en la lista de impresión de la semana.</p></div>
-      <div class="step"><div class="n">2</div><h5>Impresión los lunes</h5><p>Agrupamos los pedidos y los mandamos a producir cada lunes por la mañana para mantener el pack a 55 €.</p></div>
-      <div class="step"><div class="n">3</div><h5>Producción y envío</h5><p>La imprenta encuaderna de forma artesanal; revisamos el paquete y lo enviamos por mensajería certificada.</p></div>
-      <div class="step"><div class="n">4</div><h5>Plazo: una semana</h5><p>Reservas un lunes → impresión el lunes siguiente → entrega en los días posteriores.</p></div>
+      <div class="step"><div class="n">1</div><h3>Pides hoy, entras en la lista</h3><p>Tu reserva queda registrada y entra en la lista de impresión de la semana.</p></div>
+      <div class="step"><div class="n">2</div><h3>Impresión los lunes</h3><p>Agrupamos los pedidos y los mandamos a producir cada lunes por la mañana para mantener el pack a 55 €.</p></div>
+      <div class="step"><div class="n">3</div><h3>Producción y envío</h3><p>La imprenta encuaderna de forma artesanal; revisamos el paquete y lo enviamos por mensajería certificada.</p></div>
+      <div class="step"><div class="n">4</div><h3>Plazo: 5-7 días laborables</h3><p>Reservas → impresión el lunes siguiente → entrega 5-7 días laborables después, con número de seguimiento.</p></div>
     </div>
   </div>
 </section>
@@ -464,8 +482,8 @@
     <details><summary>¿Hay que leer los tres libros en orden?</summary><p>No. Cada novela es autónoma y tiene su propio final. El orden del tríptico (Fénix → Paradoja → Kala) suma capas, pero puedes empezar por el que más te llame.</p></details>
     <details><summary>¿Es una lectura demasiado dura?</summary><p>Es honesta. Habla de depresión, manía e ideación suicida sin adornos, pero siempre desde un relato con sentido y salida. Si estás pasando un momento delicado, lee la nota del final de la página.</p></details>
     <details><summary>¿Quién lo escribe y por qué importa?</summary><p>Lo escribe Álvaro Liras Torrente, que ha vivido el trastorno bipolar en primera persona. No es teoría de manual: es testimonio. Esa es toda su autoridad.</p></details>
-    <details><summary>¿Qué es la impresión bajo demanda y cuánto tarda?</summary><p>Tu ejemplar se imprime y encuaderna cuando lo pides, no antes. Plazo estimado de 5-7 días laborables, con número de seguimiento.</p></details>
-    <details><summary>¿El audiolibro entra con el pack?</summary><p>Sí. El tríptico completo incluye descarga inmediata de los audiolibros narrados y el PDF de notas del podcast.</p></details>
+    <details><summary>¿Qué es la impresión bajo demanda y cuánto tarda?</summary><p>Tu ejemplar se imprime y encuaderna cuando lo pides, no antes. Se imprime el lunes siguiente a tu reserva y llega 5-7 días laborables después, con número de seguimiento.</p></details>
+    <details><summary>¿El audiolibro entra con el pack?</summary><p>Sí. El tríptico completo incluye los audiolibros narrados y el PDF de notas del podcast, que te enviamos por email en cuanto confirmamos tu pago.</p></details>
     <details><summary>¿Por qué no hay pasarela de tarjeta de crédito?</summary><p>Para mantener el proyecto independiente, sostenible y sin comisiones abusivas de intermediarios, operamos directamente por Bizum y transferencia bancaria. Al reservar te damos los datos de pago al instante.</p></details>
   </div>
 </section>
@@ -474,23 +492,34 @@
 <section class="reserva" id="reserva">
   <div class="wrap">
     <h2>Entra en la lista de impresión del próximo lunes</h2>
-    <p class="lead">Rellena tus datos abajo y haz tu <b>Bizum al 670 781 940</b> o <b>transferencia al IBAN ES51&nbsp;2100&nbsp;3367&nbsp;8713&nbsp;0012&nbsp;9021</b> poniendo tu nombre en el concepto. Sin esperas ni correos automáticos: en cuanto confirmamos el pago artesanal, tu pack entra directo a imprenta el lunes.</p>
+    <p class="lead">Elige qué quieres, rellena tus datos y, al enviar, te mostramos al instante los datos para pagar por <b>Bizum</b> o <b>transferencia</b>. En cuanto confirmamos el pago, tu pedido entra directo a imprenta el lunes.</p>
     <form id="reservaForm" novalidate>
-      <div class="field"><label>Nombre y apellidos</label><input type="text" name="nombre" placeholder="Tu nombre completo" required></div>
-      <div class="field"><label>Dirección de envío completa</label><input type="text" name="direccion" placeholder="Calle, número, piso" required></div>
-      <div class="field"><label>Código postal y ciudad</label><input type="text" name="cp" placeholder="28922 Alcorcón, Madrid" required></div>
-      <div class="field"><label>Teléfono de contacto</label><input type="text" name="tel" placeholder="6XX XXX XXX" required></div>
       <div class="field">
-        <label>Método de pago</label>
-        <div class="pay">
+        <label id="lbl-libro">¿Qué quieres reservar?</label>
+        <div class="pay" role="radiogroup" aria-labelledby="lbl-libro">
+          <label><input type="radio" name="libro" value="pack" data-precio="55" data-nombre="el tríptico completo" checked> Tríptico completo · 55 €</label>
+          <label><input type="radio" name="libro" value="fenix" data-precio="26" data-nombre="«Las plumas del Fénix»"> Las plumas del Fénix · 26 €</label>
+          <label><input type="radio" name="libro" value="paradoja" data-precio="23" data-nombre="«Paradoja»"> Paradoja · 23 €</label>
+          <label><input type="radio" name="libro" value="kala" data-precio="18" data-nombre="«Kala»"> Kala · 18 €</label>
+        </div>
+      </div>
+      <div class="field"><label for="f-nombre">Nombre y apellidos</label><input type="text" id="f-nombre" name="nombre" placeholder="Tu nombre completo" autocomplete="name" required></div>
+      <div class="field"><label for="f-dir">Dirección de envío completa</label><input type="text" id="f-dir" name="direccion" placeholder="Calle, número, piso" autocomplete="street-address" required></div>
+      <div class="field"><label for="f-cp">Código postal y ciudad</label><input type="text" id="f-cp" name="cp" placeholder="28922 Alcorcón, Madrid" autocomplete="postal-code" required></div>
+      <div class="field"><label for="f-tel">Teléfono de contacto</label><input type="tel" id="f-tel" name="tel" placeholder="6XX XXX XXX" autocomplete="tel" inputmode="tel" required></div>
+      <div class="field">
+        <label id="lbl-pago">Método de pago</label>
+        <div class="pay" role="radiogroup" aria-labelledby="lbl-pago">
           <label><input type="radio" name="pago" value="transferencia" checked> Transferencia bancaria</label>
           <label><input type="radio" name="pago" value="bizum"> Bizum</label>
         </div>
       </div>
-      <label class="consent"><input type="checkbox" required> Entiendo que mi tríptico se mandará a imprenta el próximo lunes dentro del cupo semanal y que lo recibiré la semana que viene de forma artesanal y sostenible.</label>
-      <p class="trust" style="margin-bottom:14px">Pago seguro&nbsp;·&nbsp;Envío certificado con seguimiento&nbsp;·&nbsp;Beneficiario: Editorial El Gordo y el Flaco</p>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+      <label class="consent"><input type="checkbox" required> <span>Entiendo que mi pedido se mandará a imprenta el próximo lunes dentro del cupo semanal y que llegará 5-7 días laborables después de la impresión, de forma artesanal y sostenible.</span></label>
+      <label class="consent"><input type="checkbox" required> <span>He leído y acepto la <a href="privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a> y las <a href="condiciones-compra.html" target="_blank" rel="noopener">Condiciones de compra</a>.</span></label>
+      <p class="trust" style="margin-bottom:14px">Pago por Bizum o transferencia&nbsp;·&nbsp;Envío certificado con seguimiento&nbsp;·&nbsp;Beneficiario: Editorial El Gordo y el Flaco</p>
       <button type="submit" class="btn" id="cta-form-submit">Solicitar mi tríptico por 55 € — entrar en la lista</button>
-      <div class="gracias" id="gracias"></div>
+      <div class="gracias" id="gracias" role="status" aria-live="polite"></div>
     </form>
   </div>
 </section>
@@ -554,8 +583,8 @@
       "inLanguage": "es-ES",
       "bookFormat": "https://schema.org/Paperback",
       "about": "Trastorno bipolar, depresión y fase de manía en primera persona",
-      "image": "https://tripticobipolar.es/assets/covers/fenix.png",
-      "offers": { "@type": "Offer", "price": "26.00", "priceCurrency": "EUR", "availability": "https://schema.org/PreOrder" }
+      "image": "https://tripticobipolar.es/assets/covers/fenix.webp",
+      "offers": { "@type": "Offer", "price": "26.00", "priceCurrency": "EUR", "availability": "https://schema.org/PreOrder", "url": "https://tripticobipolar.es/#reserva" }
     },
     {
       "@type": "Book",
@@ -565,8 +594,8 @@
       "inLanguage": "es-ES",
       "bookFormat": "https://schema.org/Paperback",
       "about": "Hiperactividad mental y mecanismos de evasión en salud mental",
-      "image": "https://tripticobipolar.es/assets/covers/paradoja.png",
-      "offers": { "@type": "Offer", "price": "23.00", "priceCurrency": "EUR", "availability": "https://schema.org/PreOrder" }
+      "image": "https://tripticobipolar.es/assets/covers/paradoja.webp",
+      "offers": { "@type": "Offer", "price": "23.00", "priceCurrency": "EUR", "availability": "https://schema.org/PreOrder", "url": "https://tripticobipolar.es/#reserva" }
     },
     {
       "@type": "Book",
@@ -576,18 +605,18 @@
       "inLanguage": "es-ES",
       "bookFormat": "https://schema.org/Paperback",
       "about": "Neurodivergencia, aislamiento e inteligencia artificial",
-      "image": "https://tripticobipolar.es/assets/covers/kala.png",
-      "offers": { "@type": "Offer", "price": "18.00", "priceCurrency": "EUR", "availability": "https://schema.org/PreOrder" }
+      "image": "https://tripticobipolar.es/assets/covers/kala.webp",
+      "offers": { "@type": "Offer", "price": "18.00", "priceCurrency": "EUR", "availability": "https://schema.org/PreOrder", "url": "https://tripticobipolar.es/#reserva" }
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
         { "@type": "Question", "name": "¿Hay que leer los tres libros en orden?", "acceptedAnswer": { "@type": "Answer", "text": "No. Cada novela es autónoma y tiene su propio final. El orden del tríptico (Fénix, Paradoja, Kala) suma capas, pero puedes empezar por el que más te llame." } },
-        { "@type": "Question", "name": "¿Es una lectura demasiado dura?", "acceptedAnswer": { "@type": "Answer", "text": "Es honesta. Habla de depresión, manía e ideación suicida sin adornos, pero siempre desde un relato con sentido y salida." } },
-        { "@type": "Question", "name": "¿Quién lo escribe y por qué importa?", "acceptedAnswer": { "@type": "Answer", "text": "Lo escribe Álvaro Liras Torrente, que ha vivido el trastorno bipolar en primera persona. No es teoría de manual: es testimonio." } },
-        { "@type": "Question", "name": "¿Qué es la impresión bajo demanda y cuánto tarda?", "acceptedAnswer": { "@type": "Answer", "text": "Tu ejemplar se imprime y encuaderna cuando lo pides, no antes. Plazo estimado de 5-7 días laborables, con número de seguimiento." } },
-        { "@type": "Question", "name": "¿El audiolibro entra con el pack?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El tríptico completo incluye descarga inmediata de los audiolibros narrados y el PDF de notas del podcast." } },
-        { "@type": "Question", "name": "¿Por qué no hay pasarela de tarjeta de crédito?", "acceptedAnswer": { "@type": "Answer", "text": "Para mantener el proyecto independiente y sin comisiones de intermediarios, operamos por Bizum y transferencia bancaria." } }
+        { "@type": "Question", "name": "¿Es una lectura demasiado dura?", "acceptedAnswer": { "@type": "Answer", "text": "Es honesta. Habla de depresión, manía e ideación suicida sin adornos, pero siempre desde un relato con sentido y salida. Si estás pasando un momento delicado, lee la nota del final de la página." } },
+        { "@type": "Question", "name": "¿Quién lo escribe y por qué importa?", "acceptedAnswer": { "@type": "Answer", "text": "Lo escribe Álvaro Liras Torrente, que ha vivido el trastorno bipolar en primera persona. No es teoría de manual: es testimonio. Esa es toda su autoridad." } },
+        { "@type": "Question", "name": "¿Qué es la impresión bajo demanda y cuánto tarda?", "acceptedAnswer": { "@type": "Answer", "text": "Tu ejemplar se imprime y encuaderna cuando lo pides, no antes. Se imprime el lunes siguiente a tu reserva y llega 5-7 días laborables después, con número de seguimiento." } },
+        { "@type": "Question", "name": "¿El audiolibro entra con el pack?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El tríptico completo incluye los audiolibros narrados y el PDF de notas del podcast, que te enviamos por email en cuanto confirmamos el pago." } },
+        { "@type": "Question", "name": "¿Por qué no hay pasarela de tarjeta de crédito?", "acceptedAnswer": { "@type": "Answer", "text": "Para mantener el proyecto independiente, sostenible y sin comisiones abusivas de intermediarios, operamos directamente por Bizum y transferencia bancaria. Al reservar te damos los datos de pago al instante." } }
       ]
     }
   ]
@@ -595,45 +624,98 @@
 </script>
 
 <script>
-  // Mostrar instrucciones de pago al enviar (MVP sin backend)
-  var FORMSPREE='https://formspree.io/f/xzdqnyle'; // <-- pega aqui tu codigo de Formspree
+  // Pedido: se envía a Formspree y solo se confirma si el envío ha funcionado
+  var FORMSPREE='https://formspree.io/f/xzdqnyle';
   var form=document.getElementById('reservaForm');
   var gr=document.getElementById('gracias');
+  var btnSubmit=document.getElementById('cta-form-submit');
+  // Datos de pago: no van en el HTML, solo se muestran al enviar el pedido
+  var BIZUM=['670','781','940'].join(' ');
+  var IBAN=['ES51','2100','3367','8713','0012','9021'].join(' ');
 
   // --- Medición (Dani/Iñaki). Empuja a dataLayer si existe GTM/GA4. ---
   function track(ev, data){ try{ window.dataLayer=window.dataLayer||[]; window.dataLayer.push(Object.assign({event:ev}, data||{})); }catch(e){} }
   document.querySelectorAll('a.btn, button.btn').forEach(function(b){
     b.addEventListener('click', function(){ track('cta_click', {cta_id: b.id || b.textContent.trim().slice(0,40)}); });
   });
-  document.querySelectorAll('audio').forEach(function(a){
-    a.addEventListener('play', function(){ track('audio_play', {src: (a.currentSrc||'').split('/').pop()}); }, {once:true});
+
+  // --- Audios: el iframe de Google Drive solo se carga al pulsar (evita cookies de terceros antes de tiempo) ---
+  document.querySelectorAll('.audio-ph').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var f=document.createElement('iframe');
+      f.className='audio'; f.src=btn.getAttribute('data-src'); f.height='80';
+      f.allow='autoplay'; f.title=btn.getAttribute('data-title');
+      btn.replaceWith(f);
+      track('audio_play', {src: f.title});
+    });
   });
+
+  // --- Selección de producto ---
+  function elegido(){ return form.querySelector('input[name=libro]:checked'); }
+  function pintaBoton(){
+    var e=elegido();
+    btnSubmit.textContent = e.value==='pack'
+      ? 'Solicitar mi tríptico por '+e.dataset.precio+' € — entrar en la lista'
+      : 'Solicitar '+e.dataset.nombre+' por '+e.dataset.precio+' € — entrar en la lista';
+  }
+  form.querySelectorAll('input[name=libro]').forEach(function(r){
+    r.addEventListener('change', function(){ pintaBoton(); track('product_select', {producto:r.value}); });
+  });
+  document.querySelectorAll('[data-libro]').forEach(function(a){
+    a.addEventListener('click', function(){
+      var r=form.querySelector('input[name=libro][value='+a.getAttribute('data-libro')+']');
+      if(r){ r.checked=true; pintaBoton(); }
+    });
+  });
+  pintaBoton();
+
   var started=false;
-  form.querySelectorAll('input[type=text]').forEach(function(i){
+  form.querySelectorAll('input[type=text],input[type=tel]').forEach(function(i){
     i.addEventListener('focus', function(){ if(!started){started=true; track('form_start');} });
   });
   form.querySelectorAll('input[name=pago]').forEach(function(r){
     r.addEventListener('change', function(){ track('pay_method', {metodo: r.value}); });
   });
 
+  function esc(t){ return String(t).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+  function muestra(html, error){
+    gr.className='gracias'+(error?' err':'');
+    gr.innerHTML=html; gr.style.display='block';
+    gr.scrollIntoView({behavior:'smooth',block:'center'});
+  }
+
   form.addEventListener('submit',function(e){
     e.preventDefault();
     if(!form.checkValidity()){form.reportValidity();return;}
     var pago=form.querySelector('input[name=pago]:checked').value;
+    var prod=elegido();
+    var precio=prod.dataset.precio, nombreProd=prod.dataset.nombre;
     var nombre=(form.nombre.value||'tu nombre').trim();
-    track('lead', {metodo: pago, valor: 55, moneda: 'EUR'});
-    if(FORMSPREE.indexOf('TU_CODIGO')===-1){ try{ var fd=new FormData(form); fd.append('_subject','Nuevo pedido triptico - '+nombre); fetch(FORMSPREE,{method:'POST',body:fd,headers:{'Accept':'application/json'}}); }catch(err){} }
-    var html='<b>¡Reserva registrada!</b> Tu cupo está bloqueado para la impresión del próximo lunes.<br><br>';
-    if(pago==='bizum'){
-      html+='Para finalizar, haz tu <b>Bizum de 55 €</b> al número <code>670 781 940</code> (Editorial El Gordo y el Flaco) indicando «'+nombre+'» en el concepto.';
-    }else{
-      html+='Para finalizar, ingresa <b>55 €</b> en la cuenta <code>ES51 2100 3367 8713 0012 9021</code> indicando «'+nombre+'». Para acelerar, envía el justificante a <code>alvaroliras@gmail.com</code>.';
-    }
-    gr.innerHTML=html; gr.style.display='block';
-    gr.scrollIntoView({behavior:'smooth',block:'center'});
+    var fd=new FormData(form);
+    fd.append('_subject','Nuevo pedido tríptico - '+prod.value+' - '+nombre);
+    fd.append('producto',nombreProd);
+    fd.append('importe',precio+' €');
+    btnSubmit.disabled=true; var txt=btnSubmit.textContent; btnSubmit.textContent='Enviando…';
+    fetch(FORMSPREE,{method:'POST',body:fd,headers:{'Accept':'application/json'}})
+      .then(function(r){ if(!r.ok) throw new Error('http '+r.status); return r; })
+      .then(function(){
+        track('lead', {metodo: pago, producto: prod.value, valor: Number(precio), moneda: 'EUR'});
+        var html='<b>¡Reserva registrada!</b> Tu cupo está bloqueado para la impresión del próximo lunes.<br><br>';
+        if(pago==='bizum'){
+          html+='Para finalizar, haz tu <b>Bizum de '+precio+' €</b> al número <code>'+BIZUM+'</code> (Editorial El Gordo y el Flaco) indicando «'+esc(nombre)+'» en el concepto.';
+        }else{
+          html+='Para finalizar, ingresa <b>'+precio+' €</b> en la cuenta <code>'+IBAN+'</code> indicando «'+esc(nombre)+'». Para acelerar, envía el justificante a <code>alvaroliras@gmail.com</code>.';
+        }
+        muestra(html,false);
+        form.reset(); pintaBoton();
+      })
+      .catch(function(){
+        muestra('<b>No hemos podido enviar tu pedido.</b> Tus datos no se han guardado y no hace falta que pagues todavía. Revisa tu conexión e inténtalo de nuevo, o escríbenos a <code>alvaroliras@gmail.com</code> con tu pedido ('+esc(nombreProd)+', '+precio+' €).',true);
+      })
+      .finally(function(){ btnSubmit.disabled=false; btnSubmit.textContent=txt; pintaBoton(); });
   });
 </script>
-<div id="lightbox"><span class="lbclose">&times;</span><img alt=""></div>
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Imagen ampliada"><button type="button" class="lbclose" aria-label="Cerrar">&times;</button><img alt=""></div>
 <script>(function(){var lb=document.getElementById("lightbox"),img=lb.querySelector("img");document.querySelectorAll(".gitem").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();img.src=a.getAttribute("href");lb.classList.add("open");});});function c(){lb.classList.remove("open");img.src="";}lb.addEventListener("click",c);document.addEventListener("keydown",function(e){if(e.key==="Escape")c();});var fc=document.querySelector(".fenix-carousel");if(fc){var sl=fc.querySelectorAll(".fc-slide"),dt=fc.querySelectorAll(".fc-dot"),i=0;function go(n){i=(n+sl.length)%sl.length;sl.forEach(function(x){x.classList.remove("active")});dt.forEach(function(x){x.classList.remove("active")});sl[i].classList.add("active");if(dt[i])dt[i].classList.add("active");}fc.querySelector(".fc-next").addEventListener("click",function(){go(i+1)});fc.querySelector(".fc-prev").addEventListener("click",function(){go(i-1)});dt.forEach(function(d,n){d.addEventListener("click",function(){go(n)})});}})();</script>
 <script>(function(){var hb=document.getElementById("hambBtn"),nl=document.getElementById("navLinks");if(hb&&nl){hb.addEventListener("click",function(){var o=nl.classList.toggle("open");hb.classList.toggle("open",o);hb.setAttribute("aria-expanded",o);});nl.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){nl.classList.remove("open");hb.classList.remove("open");hb.setAttribute("aria-expanded","false");});});}var br=document.querySelector(".topnav .brand");if(br){br.addEventListener("click",function(e){e.preventDefault();window.scrollTo({top:0,behavior:"smooth"});});}})();</script>
 <!-- Banner de consentimiento de cookies -->

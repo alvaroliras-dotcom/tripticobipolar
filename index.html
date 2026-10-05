@@ -150,7 +150,7 @@
   .book.right .cover{order:2}
   .book.right .content{order:1}
   .cover{position:sticky;top:96px}
-  .cover img{filter:drop-shadow(0 30px 50px rgba(0,0,0,.55));width:min(100%,460px)}
+  .cover img{filter:drop-shadow(0 30px 50px rgba(0,0,0,.55));width:min(100%,380px)}
   .book.light .cover img{filter:drop-shadow(0 30px 50px rgba(0,0,0,.25))}
   .book h2{font-size:clamp(2.2rem,4.6vw,4rem);margin-bottom:18px}
   .book h2 em,.book h2 i{font-style:italic;color:var(--fucsia)}
@@ -217,7 +217,7 @@
 
   /* ---------- PARADOJA · huida ---------- */
   .book.paradoja{background:var(--papel)}
-  .book.paradoja .cover img{width:min(100%,520px);margin-left:auto}
+  .book.paradoja .cover img{width:min(100%,400px);margin-left:auto}
   .book.paradoja h2{font-size:clamp(2.4rem,5.4vw,4.8rem)}
   .book.paradoja .claim{color:var(--tinta);font-size:clamp(1.5rem,2.6vw,2.2rem);max-width:18ch}
   .book.paradoja .claim em{color:var(--fucsia);font-style:italic}
@@ -348,6 +348,11 @@
   footer .legal a{text-decoration:underline}
 
   /* ---------- LIGHTBOX ---------- */
+  /* Lupa al pasar el ratón (solo ratón, no táctil) */
+  #lupa{position:fixed;left:0;top:0;width:210px;height:210px;border-radius:50%;pointer-events:none;z-index:900;opacity:0;transform:scale(.85);transition:opacity .18s ease,transform .18s var(--ease-out);background-repeat:no-repeat;background-color:#111;box-shadow:0 0 0 2px rgba(255,255,255,.85),0 18px 44px rgba(0,0,0,.55)}
+  #lupa.on{opacity:1;transform:scale(1)}
+  .js-lupa .cover img,.js-lupa .gitem img,.js-lupa .fs-img.active img,.js-lupa .hero .trio img,.js-lupa .trio-small{cursor:zoom-in}
+  @media (hover:none),(pointer:coarse){#lupa{display:none}}
   #lightbox{position:fixed;inset:0;background:rgba(0,0,0,.94);display:none;align-items:center;justify-content:center;z-index:9999;padding:20px;cursor:zoom-out}
   #lightbox.open{display:flex;animation:lbin .25s ease}
   @keyframes lbin{from{opacity:0}to{opacity:1}}
@@ -369,7 +374,6 @@
   /* ---------- RESPONSIVE ---------- */
   @media(max-width:1024px){
     .book.kala .grid{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:48px}
-    .fases-grid{gap:40px}
   }
   @media(max-width:860px){
     section,.book{padding:80px 0}
@@ -445,7 +449,7 @@
     </div>
     <div class="trio fade">
       <div class="trio-wrap">
-        <img src="assets/covers/trio-sinfondo.webp" width="1369" height="801" fetchpriority="high" alt="Los tres libros del Tríptico Bipolar: Las plumas del Fénix, Paradoja y Kala"
+        <img src="assets/covers/trio-sinfondo.webp" width="1268" height="731" fetchpriority="high" alt="Los tres libros del Tríptico Bipolar: Las plumas del Fénix, Paradoja y Kala"
              onerror="this.outerHTML='&lt;div class=\'ph\'&gt;[ Render de los 3 libros — assets/covers/trio.webp ]&lt;/div&gt;'">
       </div>
     </div>
@@ -487,7 +491,7 @@
   <div class="wrap">
     <div class="grid">
       <div class="cover reveal">
-        <img src="assets/covers/fenix-sinfondo.webp" width="547" height="563" loading="lazy" decoding="async" alt="Portada de Las plumas del Fénix"
+        <img src="assets/covers/fenix-sinfondo.webp" width="353" height="545" loading="lazy" decoding="async" alt="Portada de Las plumas del Fénix"
              onerror="this.outerHTML='&lt;div class=\'ph\'&gt;[ Portada — assets/covers/fenix.webp ]&lt;/div&gt;'">
       </div>
       <div class="content">
@@ -542,7 +546,7 @@
   <div class="wrap">
     <div class="grid">
       <div class="cover reveal" id="paradojaCover">
-        <img src="assets/covers/paradoja-sinfondo.webp" width="563" height="563" loading="lazy" decoding="async" alt="Portada de Paradoja"
+        <img src="assets/covers/paradoja-sinfondo.webp" width="362" height="530" loading="lazy" decoding="async" alt="Portada de Paradoja"
              onerror="this.outerHTML='&lt;div class=\'ph\'&gt;[ Portada — assets/covers/paradoja.webp ]&lt;/div&gt;'">
       </div>
       <div class="content">
@@ -579,7 +583,7 @@
   <div class="wrap">
     <div class="grid">
       <div class="cover reveal">
-        <img src="assets/covers/kala-sinfondo.webp" width="575" height="563" loading="lazy" decoding="async" alt="Portada de Kala"
+        <img src="assets/covers/kala-sinfondo.webp" width="310" height="527" loading="lazy" decoding="async" alt="Portada de Kala"
              onerror="this.outerHTML='&lt;div class=\'ph\'&gt;[ Portada — assets/covers/kala.webp ]&lt;/div&gt;'">
       </div>
       <div class="content">
@@ -650,7 +654,7 @@
       </div>
     </div>
     <div class="nexus-img reveal">
-      <img class="trio-small" src="assets/covers/trio-sinfondo.webp" width="1369" height="801" loading="lazy" decoding="async" alt="Los tres libros del Tríptico Bipolar">
+      <img class="trio-small" src="assets/covers/trio-sinfondo.webp" width="1268" height="731" loading="lazy" decoding="async" alt="Los tres libros del Tríptico Bipolar">
     </div>
   </div>
 </section>
@@ -920,6 +924,31 @@
       .finally(function(){ btnSubmit.disabled=false; btnSubmit.textContent=txt; pintaBoton(); });
   });
 </script>
+<div id="lupa" aria-hidden="true"></div>
+<script>(function(){
+  if(!matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+  var L=document.getElementById('lupa'), Z=2.6, R=105, cur=null;
+  document.documentElement.classList.add('js-lupa');
+  var SEL='.cover img,.gitem img,.fs-img.active img,.hero .trio img,.trio-small';
+  function hi(img){ var a=img.closest('a.gitem'); return a?a.getAttribute('href'):(img.currentSrc||img.src); }
+  function off(){ L.classList.remove('on'); cur=null; }
+  document.addEventListener('mousemove',function(e){
+    if(document.getElementById('lightbox').classList.contains('open')){ off(); return; }
+    var img=null, els=document.elementsFromPoint(e.clientX,e.clientY);
+    for(var i=0;i<els.length;i++){ if(els[i].matches && els[i].matches(SEL)){ img=els[i]; break; } }
+    if(!img){ off(); return; }
+    var r=img.getBoundingClientRect();
+    var x=(e.clientX-r.left)/r.width, y=(e.clientY-r.top)/r.height;
+    if(cur!==img){ cur=img; L.style.backgroundImage='url("'+hi(img)+'")'; }
+    var bw=r.width*Z, bh=r.height*Z;
+    L.style.backgroundSize=bw+'px '+bh+'px';
+    L.style.backgroundPosition=(R-x*bw)+'px '+(R-y*bh)+'px';
+    L.style.left=(e.clientX-R)+'px'; L.style.top=(e.clientY-R)+'px';
+    L.classList.add('on');
+  },{passive:true});
+  document.addEventListener('mouseleave',off);
+  window.addEventListener('scroll',off,{passive:true});
+})();</script>
 <div id="lightbox" role="dialog" aria-modal="true" aria-label="Imagen ampliada"><button type="button" class="lbclose" aria-label="Cerrar">&times;</button><img alt=""></div>
 <script>(function(){var lb=document.getElementById("lightbox"),img=lb.querySelector("img");document.querySelectorAll(".gitem").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();img.src=a.getAttribute("href");lb.classList.add("open");});});function c(){lb.classList.remove("open");img.src="";}lb.addEventListener("click",c);document.addEventListener("keydown",function(e){if(e.key==="Escape")c();});})();</script>
 <script>(function(){var hb=document.getElementById("hambBtn"),nl=document.getElementById("navLinks");if(hb&&nl){hb.addEventListener("click",function(){var o=nl.classList.toggle("open");hb.classList.toggle("open",o);hb.setAttribute("aria-expanded",o);});nl.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){nl.classList.remove("open");hb.classList.remove("open");hb.setAttribute("aria-expanded","false");});});}var br=document.querySelector(".topnav .brand");if(br){br.addEventListener("click",function(e){e.preventDefault();window.scrollTo({top:0,behavior:"smooth"});});}})();</script>

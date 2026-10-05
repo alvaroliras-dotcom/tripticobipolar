@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tripticobipolar.es/sitemap.xml
+Sitemap: https://www.tripticobipolar.es/sitemap.xml
